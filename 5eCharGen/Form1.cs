@@ -14,9 +14,12 @@ namespace _5eCharGen
 {
     public partial class MainWindow : Form
     {
+        Data data = new Data();
+
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -27,7 +30,6 @@ namespace _5eCharGen
             {
                 //MessageBox.Show("Directory Exists");
 
-                List<Object> data = new List<Object>();
                 foreach (string file in Directory.EnumerateFiles(Directory.GetCurrentDirectory() + "/Data", "*.json", SearchOption.TopDirectoryOnly))
                 {
                     FileInfo fileinfo = new FileInfo(file);
