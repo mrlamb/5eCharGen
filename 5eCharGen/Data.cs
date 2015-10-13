@@ -17,7 +17,7 @@ namespace _5eCharGen
             Queue<Race> races = new Queue<Race>();
             foreach (Object obj in data)
             {
-                if (string.Equals("_5eCharGen.Races", string.Format("{0}", obj.GetType())))
+                if (obj is Races)
                 {
                     //Need to iterate through obj and add each to new 
                     //races queue

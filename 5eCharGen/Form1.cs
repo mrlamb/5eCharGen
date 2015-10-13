@@ -30,12 +30,14 @@ namespace _5eCharGen
             {
                 //MessageBox.Show("Directory Exists");
 
-                foreach (string file in Directory.EnumerateFiles(Directory.GetCurrentDirectory() + "/Data", "*.json", SearchOption.TopDirectoryOnly))
+                foreach (string file in Directory.EnumerateFiles(Directory.GetCurrentDirectory()
+                    + dataPath, "*.json", SearchOption.TopDirectoryOnly))
                 {
                     FileInfo fileinfo = new FileInfo(file);
-                    Type currType = Type.GetType("_5eCharGen." + fileinfo.Name.Substring(0, fileinfo.Name.IndexOf('.')));
-
-                    data.Add(JsonConvert.DeserializeObject(File.ReadAllText(file), currType));
+                   
+                    data.Add(JsonConvert.DeserializeObject(File.ReadAllText(file), 
+                        Type.GetType("_5eCharGen." + 
+                        fileinfo.Name.Substring(0, fileinfo.Name.IndexOf('.')))));
 
                     
                 }

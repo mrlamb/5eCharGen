@@ -66,6 +66,7 @@
     <Compile Include="Race.cs" />
     <Compile Include="Skills.cs" />
     <Compile Include="SpecialAbility.cs" />
+    <Compile Include="Spell.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
