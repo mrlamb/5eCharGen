@@ -1,6 +1,6 @@
 ﻿namespace _5eCharGen
 {
-    public class Feats
+    public class Feats : SpecialAbility
     {
     }
 }
