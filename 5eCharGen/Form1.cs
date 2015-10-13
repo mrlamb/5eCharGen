@@ -37,8 +37,10 @@ namespace _5eCharGen
 
                     data.Add(JsonConvert.DeserializeObject(File.ReadAllText(file), currType));
 
+                    
                 }
-
+                //Sample call to GetRaces to return the Queue
+                Queue<Race> races = data.GetRaces();
 
             }
         }
