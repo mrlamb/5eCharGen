@@ -1,0 +1,17 @@
+﻿[
+  {
+    "Name": "Dwarf",
+    "Description": "Stout, surly and often confrontational these people are nonetheless very loyal companions to those they consider friends.",
+    "RacialAbilities": [
+      {
+        "Name": "Darkvision",
+        "Description": "Dwarves see in darkness as if it were dim light and in dim light as normal to 60 feet."
+      }
+    ],
+    "RacialStatChange": {
+      "CON": 2
+    },
+    "Speed": 30,
+    "Subrace": false
+  }
+]

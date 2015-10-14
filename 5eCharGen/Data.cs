@@ -1,36 +1,43 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace _5eCharGen
 {
-    internal class Data
+    public static class Data
     {
-        private List<Object> data = new List<object>();
+        private static Dictionary<string, Race> races = new Dictionary<string, Race>();
 
-        internal void Add(object v)
+        static Data()
         {
-            data.Add(v);
+            races = Load<Race>();
         }
 
-        public Queue<Race> GetRaces()
+        private static Dictionary<string, T> Load<T>(string dataPath = "/Data") where T : IDataType
         {
-            Queue<Race> races = new Queue<Race>();
-            foreach (Object obj in data)
+            Dictionary<string, T> dictionary = new Dictionary<string, T>();
+            string filename = Directory.GetCurrentDirectory() + dataPath + "/" + typeof(T).Name + ".json";
+            if (File.Exists(filename))
             {
-                if (obj is Races)
+                T[] dataArray = JsonConvert.DeserializeObject<T[]>(File.ReadAllText(filename));
+                foreach (T data in dataArray)
                 {
-                    //Need to iterate through obj and add each to new 
-                    //races queue
-                    Races Races = (Races)obj;
-                    foreach (Race race in Races.Values)
-                    {
-                        races.Enqueue(race);
-                    }
+                    dictionary.Add(data.Name, data);
                 }
-
             }
-
-            return races;
+            return dictionary;
         }
+
+        public static IEnumerable<Race> GetAllRaces()
+        {
+            return races.Values;
+        }
+
+        public static Race GetRace(string name)
+        {
+            return races[name];
+        }
+
     }
 }

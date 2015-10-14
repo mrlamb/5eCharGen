@@ -2,7 +2,7 @@
 
 namespace _5eCharGen
 {
-    public class Race
+    public class Race : IDataType
     {
         public string Name { get; set; }
         public string Description { get; set; }
