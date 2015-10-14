@@ -1,17 +1,62 @@
-﻿[
-  {
-    "Name": "Dwarf",
-    "Description": "Stout, surly and often confrontational these people are nonetheless very loyal companions to those they consider friends.",
-    "RacialAbilities": [
-      {
-        "Name": "Darkvision",
-        "Description": "Dwarves see in darkness as if it were dim light and in dim light as normal to 60 feet."
-      }
-    ],
-    "RacialStatChange": {
-      "CON": 2
+﻿{
+  "Values": [
+
+    {
+      "Name": "Dwarf",
+      "Description": "Stout, surly and often confrontational these people are nonetheless very loyal companions to those they consider friends.",
+      "RacialAbilities": [
+        {
+          "Name": "Darkvision 60ft",
+          "Description": "Dwarves see in darkness as if it were dim light and dim light as normal out to 60 ft."
+        }
+      ],
+      "RacialStatChange": {
+        "CON": 2
+      },
+      "Speed": 25,
+      "Subrace": false,
+      "ParentRace": "None"
+
     },
-    "Speed": 30,
-    "Subrace": false
-  }
-]
+    {
+      "Name": "Tiefling",
+      "Description": "Touched by a demonic bloodline, these peoples are often mistrusted by the other races. This poor treatment often makes them guarded with strangers, but when someone shows them a kindness, they will usually reciprocate strongly.",
+      "RacialAbilities": [
+        {
+          "Name": "Darkvision 60ft",
+          "Description": "Tieflings see in darkness as if it were dim light and dim light as normal out to 60 ft."
+        },
+        {
+          "Name": "Hellish Resistance",
+          "Description": "Resistance to fire damage."
+        },
+        {
+          "Name": "Infernal Legacy",
+          "Description": "Adds three spells: Thaumaturgy Cantrip, Hellish Rebuke (as a 2nd level spell) 1/day at level 3 and Darkness at level 5",
+          "SpellsAdded": [
+
+            "Thaumaturgy",
+            "Hellish Rebuke",
+            "Darkness"
+
+          ]
+
+        }
+      ],
+      "RacialStatChange": {
+        "CHA": 2,
+        "INT": 1
+      },
+      "Speed": 30,
+      "Subrace": false,
+      "ParentRace": "None",
+      "Languages": [
+        "Common",
+        "Infernal"]
+    
+    }
+
+  ]
+
+
+}
