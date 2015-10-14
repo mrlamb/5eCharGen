@@ -22,10 +22,7 @@ namespace _5eCharGen
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            foreach (Race race in Data.GetAllRaces())
-            {
-                MessageBox.Show(race.Name);
-            }
+            Data.GetAllRaces();
         }
         private void btnMainLoad_Click(object sender, EventArgs e)
         {

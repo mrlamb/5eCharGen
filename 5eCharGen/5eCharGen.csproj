@@ -52,6 +52,12 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="CharClass.cs" />
+    <Compile Include="ConsoleLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsoleLog.Designer.cs">
+      <DependentUpon>ConsoleLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data.cs" />
     <Compile Include="Feats.cs" />
     <Compile Include="Form1.cs">
@@ -68,6 +74,9 @@
     <Compile Include="Skills.cs" />
     <Compile Include="SpecialAbility.cs" />
     <Compile Include="Spell.cs" />
+    <EmbeddedResource Include="ConsoleLog.resx">
+      <DependentUpon>ConsoleLog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,7 +89,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Data\Feat.json" />
+    <None Include="Data\Feat.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Data\Race.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
