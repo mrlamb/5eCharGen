@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace _5eCharGen
+namespace _5eCharGen.View
 {
     public partial class ConsoleLog : Form
     {

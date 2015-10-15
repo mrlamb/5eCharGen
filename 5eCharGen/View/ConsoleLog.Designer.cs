@@ -1,4 +1,4 @@
-﻿namespace _5eCharGen
+﻿namespace _5eCharGen.View
 {
     partial class ConsoleLog
     {
