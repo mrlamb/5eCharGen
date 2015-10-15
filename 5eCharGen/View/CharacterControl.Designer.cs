@@ -30,13 +30,13 @@
         {
             this.tabCharacter = new System.Windows.Forms.TabControl();
             this.tabPageCharacter = new System.Windows.Forms.TabPage();
+            this.attributeBlock = new _5eCharGen.View.AttributeBlock();
             this.textFieldName = new _5eCharGen.View.TextFieldControl();
             this.tabClass = new System.Windows.Forms.TabPage();
             this.tabSkills = new System.Windows.Forms.TabPage();
             this.tabFeats = new System.Windows.Forms.TabPage();
             this.tabSpells = new System.Windows.Forms.TabPage();
             this.tabEquipment = new System.Windows.Forms.TabPage();
-            this.attributeBlock1 = new _5eCharGen.View.AttributeBlock();
             this.tabCharacter.SuspendLayout();
             this.tabPageCharacter.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +60,7 @@
             // 
             // tabPageCharacter
             // 
-            this.tabPageCharacter.Controls.Add(this.attributeBlock1);
+            this.tabPageCharacter.Controls.Add(this.attributeBlock);
             this.tabPageCharacter.Controls.Add(this.textFieldName);
             this.tabPageCharacter.Location = new System.Drawing.Point(23, 4);
             this.tabPageCharacter.Name = "tabPageCharacter";
@@ -69,6 +69,13 @@
             this.tabPageCharacter.TabIndex = 0;
             this.tabPageCharacter.Text = "Character";
             this.tabPageCharacter.UseVisualStyleBackColor = true;
+            // 
+            // attributeBlock
+            // 
+            this.attributeBlock.Location = new System.Drawing.Point(7, 52);
+            this.attributeBlock.Name = "attributeBlock";
+            this.attributeBlock.Size = new System.Drawing.Size(229, 208);
+            this.attributeBlock.TabIndex = 1;
             // 
             // textFieldName
             // 
@@ -124,13 +131,6 @@
             this.tabEquipment.Text = "Equipment";
             this.tabEquipment.UseVisualStyleBackColor = true;
             // 
-            // attributeBlock1
-            // 
-            this.attributeBlock1.Location = new System.Drawing.Point(7, 52);
-            this.attributeBlock1.Name = "attributeBlock1";
-            this.attributeBlock1.Size = new System.Drawing.Size(229, 208);
-            this.attributeBlock1.TabIndex = 1;
-            // 
             // CharacterControl
             // 
             this.Controls.Add(this.tabCharacter);
@@ -151,6 +151,6 @@
         private System.Windows.Forms.TabPage tabSpells;
         private System.Windows.Forms.TabPage tabEquipment;
         private TextFieldControl textFieldName;
-        private AttributeBlock attributeBlock1;
+        private AttributeBlock attributeBlock;
     }
 }

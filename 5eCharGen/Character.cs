@@ -18,6 +18,19 @@ namespace _5eCharGen
         public List<Feats> Feats { get; set; }
         public Inventory Inventory { get; set; }
 
+        public Character()
+        {
+            Attributes = new Dictionary<string, int>()
+            {
+                {"STR", 8 },
+                {"DEX", 8 },
+                {"CON", 8 },
+                {"WIS", 8 },
+                {"INT", 8 },
+                {"CHA", 8 }
+            };
+        }
+
         public Character(StreamReader sr)
         {
             // Load character data from the file
