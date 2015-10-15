@@ -16,5 +16,10 @@ namespace _5eCharGen
         {
             InitializeComponent();
         }
+
+        public void Add(string line)
+        {
+            label1.Text += line;
+        }
     }
 }

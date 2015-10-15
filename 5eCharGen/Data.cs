@@ -21,7 +21,7 @@ namespace _5eCharGen
         {
             Dictionary<string, T> dictionary = new Dictionary<string, T>();
             string filename = Directory.GetCurrentDirectory() + dataPath + "\\" + typeof(T).Name + ".json";
-            log.label1.Text += string.Format("Loading file: {0}\n\r", filename);
+            log.Add(string.Format("Loading file: {0}\n\r", filename));
             
             if (File.Exists(filename))
             {
@@ -29,7 +29,7 @@ namespace _5eCharGen
                 
                 foreach (T data in dataArray)
                 {
-                    log.label1.Text += string.Format("Adding new {0} - {1}\n\r", typeof(T).Name, data.Name);
+                    log.Add(string.Format("Adding new {0} - {1}\n\r", typeof(T).Name, data.Name));
                     dictionary.Add(data.Name, data);
                 }
             }
