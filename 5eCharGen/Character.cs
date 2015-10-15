@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _5eCharGen
 {
-    class Character
+    public class Character
     {
         public string Name { get; set; }
         public int CharLevel { get; set; }

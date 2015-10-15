@@ -52,19 +52,25 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="CharClass.cs" />
-    <Compile Include="ConsoleLog.cs">
+    <Compile Include="View\CharacterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\CharacterControl.Designer.cs">
+      <DependentUpon>CharacterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConsoleLog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsoleLog.Designer.cs">
+    <Compile Include="View\ConsoleLog.Designer.cs">
       <DependentUpon>ConsoleLog.cs</DependentUpon>
     </Compile>
     <Compile Include="Data.cs" />
     <Compile Include="Feats.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="View\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="IDataType.cs" />
     <Compile Include="Inventory.cs" />
@@ -74,11 +80,20 @@
     <Compile Include="Skills.cs" />
     <Compile Include="SpecialAbility.cs" />
     <Compile Include="Spell.cs" />
-    <EmbeddedResource Include="ConsoleLog.resx">
+    <Compile Include="View\TextFieldControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\TextFieldControl.Designer.cs">
+      <DependentUpon>TextFieldControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\CharacterControl.resx">
+      <DependentUpon>CharacterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ConsoleLog.resx">
       <DependentUpon>ConsoleLog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="View\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -89,12 +104,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Data\Feat.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Race.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <EmbeddedResource Include="View\TextFieldControl.resx">
+      <DependentUpon>TextFieldControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Data\Feat.json" />
+    <None Include="Data\Race.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
