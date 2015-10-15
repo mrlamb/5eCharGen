@@ -9,12 +9,15 @@ namespace _5eCharGen
     public static class Data
     {
         private static Dictionary<string, Race> races = new Dictionary<string, Race>();
-        static ConsoleLog log = new ConsoleLog();
+        private static Dictionary<string, Feats> feats = new Dictionary<string, Feats>();
+
+        private static ConsoleLog log = new ConsoleLog();
         static Data()
         {
             
             log.Show();
             races = Load<Race>();
+            feats = Load<Feats>();
         }
 
         private static Dictionary<string, T> Load<T>(string dataPath = "\\Data") where T : IDataType

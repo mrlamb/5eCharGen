@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace _5eCharGen
 {
-    public class SpecialAbility
+    public class SpecialAbility : IDataType
     {
         public string Name { get; set; }
         public string Description { get; set; }
