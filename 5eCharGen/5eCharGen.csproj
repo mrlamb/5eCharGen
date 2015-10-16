@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="CharClass.cs" />
+    <Compile Include="Interfaces\ICharacter.cs" />
     <Compile Include="View\AttributeBlock.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -93,7 +94,7 @@
     <Compile Include="View\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="IDataType.cs" />
+    <Compile Include="Interfaces\IDataType.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
