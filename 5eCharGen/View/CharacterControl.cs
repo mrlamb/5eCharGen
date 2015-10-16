@@ -35,8 +35,12 @@ namespace _5eCharGen.View
         private void CustomInitialize()
         {
             textFieldName.TextChanged += TextFieldName_TextChanged;
-            attributeBlock.Character = Character;
-            attributeBlock.UpdateTotals();
+            attributeBlock.UpdateTotals(Character);
+
+            foreach(Race race in Data.GetAllRaces())
+            {
+                comboBoxFieldRace.ComboBox.Items.Add(race);
+            }
         }
 
         private void TextFieldName_TextChanged(object sender, EventArgs e)

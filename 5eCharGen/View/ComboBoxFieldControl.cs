@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _5eCharGen.View
 {
-    public partial class TextFieldControl : UserControl
+    public partial class ComboBoxFieldControl : UserControl
     {
-        public TextFieldControl()
+        public ComboBoxFieldControl()
         {
             InitializeComponent();
         }
@@ -25,16 +25,11 @@ namespace _5eCharGen.View
 
         public override string Text
         {
-            get { return textBox.Text; }
-            set { textBox.Text = value; }
-        }
-
-        private void textBox_TextChanged(object sender, EventArgs e)
-        {
-            OnTextChanged(e);
+            get { return comboBox.Text; }
+            set { comboBox.Text = value; }
         }
 
         public Label Label { get { return label; } }
-        public TextBox TextBox { get { return textBox; } }
+        public ComboBox ComboBox { get { return comboBox; } }
     }
 }

@@ -13,11 +13,12 @@ namespace _5eCharGen
         public bool Subrace { get; set; }
         public string ParentRace { get; set; }
 
-
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 
-    public class Races
-    {
-        public List<Race> Values { get; set; }
-    }
+
+
 }
