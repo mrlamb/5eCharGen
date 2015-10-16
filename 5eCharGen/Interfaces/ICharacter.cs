@@ -14,7 +14,7 @@ namespace _5eCharGen
         Race Race { get; set; }
         IDictionary<string, int> Attributes { get; set; }
         IList<Skills> Skills { get; set; }
-        IList<Skills> Feats { get; set; }
+        IList<Feats> Feats { get; set; }
         //Inventory Inventory { get; set; }
     }
 }

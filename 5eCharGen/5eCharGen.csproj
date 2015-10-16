@@ -65,8 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Character.cs" />
-    <Compile Include="CharClass.cs" />
+    <Compile Include="Controller\CharacterController.cs" />
+    <Compile Include="Model\Character.cs" />
+    <Compile Include="Model\CharClass.cs" />
     <Compile Include="Interfaces\ICharacter.cs" />
     <Compile Include="View\AttributeBlock.cs">
       <SubType>UserControl</SubType>
@@ -86,8 +87,8 @@
     <Compile Include="View\ConsoleLog.Designer.cs">
       <DependentUpon>ConsoleLog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data.cs" />
-    <Compile Include="Feats.cs" />
+    <Compile Include="Model\Data.cs" />
+    <Compile Include="Model\Feats.cs" />
     <Compile Include="View\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,13 +96,13 @@
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IDataType.cs" />
-    <Compile Include="Inventory.cs" />
+    <Compile Include="Model\Inventory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Race.cs" />
-    <Compile Include="Skills.cs" />
-    <Compile Include="SpecialAbility.cs" />
-    <Compile Include="Spell.cs" />
+    <Compile Include="Model\Race.cs" />
+    <Compile Include="Model\Skills.cs" />
+    <Compile Include="Model\SpecialAbility.cs" />
+    <Compile Include="Model\Spell.cs" />
     <Compile Include="View\ComboBoxFieldControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
