@@ -36,6 +36,7 @@
             this.tabSpells = new System.Windows.Forms.TabPage();
             this.tabEquipment = new System.Windows.Forms.TabPage();
             this.textFieldName = new _5eCharGen.View.TextFieldControl();
+            this.comboBoxFieldRace = new _5eCharGen.View.ComboBoxFieldControl();
             this.tabCharacter.SuspendLayout();
             this.tabPageCharacter.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +60,8 @@
             // 
             // tabPageCharacter
             // 
+            this.tabPageCharacter.AutoScroll = true;
+            this.tabPageCharacter.Controls.Add(this.comboBoxFieldRace);
             this.tabPageCharacter.Controls.Add(this.textFieldName);
             this.tabPageCharacter.Location = new System.Drawing.Point(23, 4);
             this.tabPageCharacter.Name = "tabPageCharacter";
@@ -116,12 +119,19 @@
             // 
             // textFieldName
             // 
-            this.textFieldName.Label = "Character Name";
+            this.textFieldName.LabelText = "Character Name";
             this.textFieldName.Location = new System.Drawing.Point(7, 7);
             this.textFieldName.Name = "textFieldName";
             this.textFieldName.Size = new System.Drawing.Size(208, 39);
             this.textFieldName.TabIndex = 0;
-            this.textFieldName.Text = "";
+            // 
+            // comboBoxFieldRace
+            // 
+            this.comboBoxFieldRace.LabelText = "Race";
+            this.comboBoxFieldRace.Location = new System.Drawing.Point(221, 7);
+            this.comboBoxFieldRace.Name = "comboBoxFieldRace";
+            this.comboBoxFieldRace.Size = new System.Drawing.Size(208, 39);
+            this.comboBoxFieldRace.TabIndex = 1;
             // 
             // CharacterControl
             // 
@@ -143,5 +153,6 @@
         private System.Windows.Forms.TabPage tabSpells;
         private System.Windows.Forms.TabPage tabEquipment;
         private TextFieldControl textFieldName;
+        private ComboBoxFieldControl comboBoxFieldRace;
     }
 }
