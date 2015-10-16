@@ -35,7 +35,8 @@ namespace _5eCharGen.View
         private void CustomInitialize()
         {
             textFieldName.TextChanged += TextFieldName_TextChanged;
-            attributeBlock.UpdateTotals(Character);
+            attributeBlock.Character = Character;
+            attributeBlock.UpdateTotals();
         }
 
         private void TextFieldName_TextChanged(object sender, EventArgs e)
