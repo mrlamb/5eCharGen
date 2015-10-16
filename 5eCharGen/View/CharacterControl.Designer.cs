@@ -37,7 +37,6 @@
             this.tabFeats = new System.Windows.Forms.TabPage();
             this.tabSpells = new System.Windows.Forms.TabPage();
             this.tabEquipment = new System.Windows.Forms.TabPage();
-            this.textFieldName = new _5eCharGen.View.TextFieldControl();
             this.comboBoxFieldRace = new _5eCharGen.View.ComboBoxFieldControl();
             this.tabCharacter.SuspendLayout();
             this.tabPageCharacter.SuspendLayout();
@@ -134,14 +133,6 @@
             this.tabEquipment.TabIndex = 5;
             this.tabEquipment.Text = "Equipment";
             this.tabEquipment.UseVisualStyleBackColor = true;
-            // 
-            // textFieldName
-            // 
-            this.textFieldName.LabelText = "Character Name";
-            this.textFieldName.Location = new System.Drawing.Point(7, 7);
-            this.textFieldName.Name = "textFieldName";
-            this.textFieldName.Size = new System.Drawing.Size(208, 39);
-            this.textFieldName.TabIndex = 0;
             // 
             // comboBoxFieldRace
             // 
