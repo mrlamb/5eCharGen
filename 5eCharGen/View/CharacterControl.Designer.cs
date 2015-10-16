@@ -30,6 +30,8 @@
         {
             this.tabCharacter = new System.Windows.Forms.TabControl();
             this.tabPageCharacter = new System.Windows.Forms.TabPage();
+            this.attributeBlock = new _5eCharGen.View.AttributeBlock();
+            this.textFieldName = new _5eCharGen.View.TextFieldControl();
             this.tabClass = new System.Windows.Forms.TabPage();
             this.tabSkills = new System.Windows.Forms.TabPage();
             this.tabFeats = new System.Windows.Forms.TabPage();
@@ -60,6 +62,7 @@
             // 
             // tabPageCharacter
             // 
+            this.tabPageCharacter.Controls.Add(this.attributeBlock);
             this.tabPageCharacter.AutoScroll = true;
             this.tabPageCharacter.Controls.Add(this.comboBoxFieldRace);
             this.tabPageCharacter.Controls.Add(this.textFieldName);
@@ -70,6 +73,21 @@
             this.tabPageCharacter.TabIndex = 0;
             this.tabPageCharacter.Text = "Character";
             this.tabPageCharacter.UseVisualStyleBackColor = true;
+            // 
+            // attributeBlock
+            // 
+            this.attributeBlock.Location = new System.Drawing.Point(7, 52);
+            this.attributeBlock.Name = "attributeBlock";
+            this.attributeBlock.Size = new System.Drawing.Size(229, 208);
+            this.attributeBlock.TabIndex = 1;
+            // 
+            // textFieldName
+            // 
+            this.textFieldName.LabelText = "Character Name";
+            this.textFieldName.Location = new System.Drawing.Point(7, 7);
+            this.textFieldName.Name = "textFieldName";
+            this.textFieldName.Size = new System.Drawing.Size(208, 39);
+            this.textFieldName.TabIndex = 0;
             // 
             // tabClass
             // 
@@ -153,6 +171,7 @@
         private System.Windows.Forms.TabPage tabSpells;
         private System.Windows.Forms.TabPage tabEquipment;
         private TextFieldControl textFieldName;
+        private AttributeBlock attributeBlock;
         private ComboBoxFieldControl comboBoxFieldRace;
     }
 }

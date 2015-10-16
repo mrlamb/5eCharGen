@@ -20,6 +20,7 @@ namespace _5eCharGen.View
         public CharacterControl()
         {
             InitializeComponent();
+            Character = new Character();
             CustomInitialize();
         }
 
@@ -28,11 +29,13 @@ namespace _5eCharGen.View
             InitializeComponent();
             Character = character;
             CustomInitialize();
+            
         }
 
         private void CustomInitialize()
         {
             textFieldName.TextChanged += TextFieldName_TextChanged;
+            attributeBlock.UpdateTotals(Character);
 
             foreach(Race race in Data.GetAllRaces())
             {

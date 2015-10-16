@@ -23,11 +23,7 @@ namespace _5eCharGen.View
         {
             Data.GetAllRaces();
         }
-        private void btnMainLoad_Click(object sender, EventArgs e)
-        {
-            loadCharDialog.ShowDialog();
-        }
-
+       
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -61,6 +57,11 @@ namespace _5eCharGen.View
         private void newCharacterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreateNewCharacterTab();
+        }
+
+        private void loadCharacterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadCharDialog.ShowDialog();
         }
     }
 }

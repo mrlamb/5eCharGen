@@ -67,6 +67,12 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="CharClass.cs" />
+    <Compile Include="View\AttributeBlock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\AttributeBlock.Designer.cs">
+      <DependentUpon>AttributeBlock.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\CharacterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     <Compile Include="View\TextFieldControl.Designer.cs">
       <DependentUpon>TextFieldControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\AttributeBlock.resx">
+      <DependentUpon>AttributeBlock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\CharacterControl.resx">
       <DependentUpon>CharacterControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,8 +140,12 @@
     <EmbeddedResource Include="View\TextFieldControl.resx">
       <DependentUpon>TextFieldControl.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Data\Feat.json" />
-    <None Include="Data\Race.json" />
+    <None Include="Data\Feat.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Race.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
