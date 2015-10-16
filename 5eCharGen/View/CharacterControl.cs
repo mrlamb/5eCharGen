@@ -35,7 +35,7 @@ namespace _5eCharGen.View
         private void CustomInitialize()
         {
             textFieldName.TextChanged += TextFieldName_TextChanged;
-            attributeBlock.UpdateTotals(Character);
+           
 
             foreach(Race race in Data.GetAllRaces())
             {
