@@ -50,6 +50,7 @@
             this.comboBox.Name = "comboBox";
             this.comboBox.Size = new System.Drawing.Size(201, 21);
             this.comboBox.TabIndex = 3;
+            this.comboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
             // ComboBoxFieldControl
             // 

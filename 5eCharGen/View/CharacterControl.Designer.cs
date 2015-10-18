@@ -31,13 +31,13 @@
             this.tabCharacter = new System.Windows.Forms.TabControl();
             this.tabPageCharacter = new System.Windows.Forms.TabPage();
             this.attributeBlock = new _5eCharGen.View.AttributeBlock();
+            this.comboBoxFieldRace = new _5eCharGen.View.ComboBoxFieldControl();
             this.textFieldName = new _5eCharGen.View.TextFieldControl();
             this.tabClass = new System.Windows.Forms.TabPage();
             this.tabSkills = new System.Windows.Forms.TabPage();
             this.tabFeats = new System.Windows.Forms.TabPage();
             this.tabSpells = new System.Windows.Forms.TabPage();
             this.tabEquipment = new System.Windows.Forms.TabPage();
-            this.comboBoxFieldRace = new _5eCharGen.View.ComboBoxFieldControl();
             this.tabCharacter.SuspendLayout();
             this.tabPageCharacter.SuspendLayout();
             this.SuspendLayout();
@@ -61,8 +61,8 @@
             // 
             // tabPageCharacter
             // 
-            this.tabPageCharacter.Controls.Add(this.attributeBlock);
             this.tabPageCharacter.AutoScroll = true;
+            this.tabPageCharacter.Controls.Add(this.attributeBlock);
             this.tabPageCharacter.Controls.Add(this.comboBoxFieldRace);
             this.tabPageCharacter.Controls.Add(this.textFieldName);
             this.tabPageCharacter.Location = new System.Drawing.Point(23, 4);
@@ -79,6 +79,14 @@
             this.attributeBlock.Name = "attributeBlock";
             this.attributeBlock.Size = new System.Drawing.Size(229, 208);
             this.attributeBlock.TabIndex = 1;
+            // 
+            // comboBoxFieldRace
+            // 
+            this.comboBoxFieldRace.LabelText = "Race";
+            this.comboBoxFieldRace.Location = new System.Drawing.Point(222, 7);
+            this.comboBoxFieldRace.Name = "comboBoxFieldRace";
+            this.comboBoxFieldRace.Size = new System.Drawing.Size(208, 39);
+            this.comboBoxFieldRace.TabIndex = 1;
             // 
             // textFieldName
             // 
@@ -133,14 +141,6 @@
             this.tabEquipment.TabIndex = 5;
             this.tabEquipment.Text = "Equipment";
             this.tabEquipment.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxFieldRace
-            // 
-            this.comboBoxFieldRace.LabelText = "Race";
-            this.comboBoxFieldRace.Location = new System.Drawing.Point(221, 7);
-            this.comboBoxFieldRace.Name = "comboBoxFieldRace";
-            this.comboBoxFieldRace.Size = new System.Drawing.Size(208, 39);
-            this.comboBoxFieldRace.TabIndex = 1;
             // 
             // CharacterControl
             // 

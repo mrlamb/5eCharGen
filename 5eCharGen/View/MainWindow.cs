@@ -62,6 +62,10 @@ namespace _5eCharGen.View
         private void loadCharacterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             loadCharDialog.ShowDialog();
+
+            //Create new character control using the overload that takes CharacterController as an argument
+            // after creating a new CharacterController and deserializing the loaded file into it.
+            // Is how I think it should work
         }
     }
 }

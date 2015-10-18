@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _5eCharGen.Controller;
 
 namespace _5eCharGen.View
 {
     public partial class CharacterControl : UserControl
     {
-        public Character Character { private set; get; }
+        public CharacterController Character { get; set; }
         public string CharacterName { set; get; }
 
         public event EventHandler CharacterNameChange;
@@ -20,10 +21,11 @@ namespace _5eCharGen.View
         public CharacterControl()
         {
             InitializeComponent();
+            Character = new CharacterController();
             CustomInitialize();
         }
 
-        public CharacterControl(Character character)
+        public CharacterControl(CharacterController character)
         {
             InitializeComponent();
             Character = character;
@@ -34,12 +36,18 @@ namespace _5eCharGen.View
         private void CustomInitialize()
         {
             textFieldName.TextChanged += TextFieldName_TextChanged;
+            comboBoxFieldRace.ComboBoxTextChanged += new EventHandler(comboBoxFieldRace_SelectedIndexChanged);
             
 
             foreach(Race race in Data.GetAllRaces())
             {
                 comboBoxFieldRace.ComboBox.Items.Add(race);
             }
+        }
+
+        private void comboBoxFieldRace_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Character.Race = Data.GetRace(comboBoxFieldRace.Text);
         }
 
         private void TextFieldName_TextChanged(object sender, EventArgs e)

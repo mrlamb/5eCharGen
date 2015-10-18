@@ -29,7 +29,15 @@ namespace _5eCharGen.View
             set { comboBox.Text = value; }
         }
 
+        public event EventHandler ComboBoxTextChanged;
+
         public Label Label { get { return label; } }
         public ComboBox ComboBox { get { return comboBox; } }
+
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.ComboBoxTextChanged != null)
+                this.ComboBoxTextChanged(this, e);
+        }
     }
 }

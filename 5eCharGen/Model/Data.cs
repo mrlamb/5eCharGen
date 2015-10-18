@@ -15,7 +15,7 @@ namespace _5eCharGen
         private static ConsoleLog log = new ConsoleLog();
         static Data()
         {
-            
+
             log.Show();
             races = Load<Race>();
             feats = Load<Feats>();
@@ -26,11 +26,11 @@ namespace _5eCharGen
             Dictionary<string, T> dictionary = new Dictionary<string, T>();
             string filename = Directory.GetCurrentDirectory() + dataPath + "\\" + typeof(T).Name + ".json";
             log.Add(string.Format("Loading file: {0}\n\r", filename));
-            
+
             if (File.Exists(filename))
             {
                 T[] dataArray = JsonConvert.DeserializeObject<T[]>(File.ReadAllText(filename));
-                
+
                 foreach (T data in dataArray)
                 {
                     log.Add(string.Format("Adding new {0} - {1}\n\r", typeof(T).Name, data.Name));
