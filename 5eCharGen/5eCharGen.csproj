@@ -66,6 +66,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\CharacterController.cs" />
+    <Compile Include="Editor\View\SpellComponentsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\View\SpellComponentsControl.Designer.cs">
+      <DependentUpon>SpellComponentsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\View\SpellEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\View\SpellEditor.Designer.cs">
+      <DependentUpon>SpellEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\View\SpellEditorIndex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\View\SpellEditorIndex.Designer.cs">
+      <DependentUpon>SpellEditorIndex.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Character.cs" />
     <Compile Include="Model\CharClass.cs" />
     <Compile Include="Interfaces\ICharacter.cs" />
@@ -115,6 +133,15 @@
     <Compile Include="View\TextFieldControl.Designer.cs">
       <DependentUpon>TextFieldControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Editor\View\SpellComponentsControl.resx">
+      <DependentUpon>SpellComponentsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\View\SpellEditor.resx">
+      <DependentUpon>SpellEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\View\SpellEditorIndex.resx">
+      <DependentUpon>SpellEditorIndex.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AttributeBlock.resx">
       <DependentUpon>AttributeBlock.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +172,7 @@
     <None Include="Data\Feat.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Data\Spell.json" />
     <None Include="Data\Race.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

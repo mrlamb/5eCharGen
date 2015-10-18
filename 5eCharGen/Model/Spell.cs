@@ -1,6 +1,7 @@
 ﻿namespace _5eCharGen
 {
-    public class Spell
+    public class Spell : IDataType
     {
+        public string Name { get; set; }
     }
 }

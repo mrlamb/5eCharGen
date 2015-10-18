@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using _5eCharGen.Editor.View;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -66,6 +67,14 @@ namespace _5eCharGen.View
             //Create new character control using the overload that takes CharacterController as an argument
             // after creating a new CharacterController and deserializing the loaded file into it.
             // Is how I think it should work
+        }
+
+        private void spellEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SpellEditor se = SpellEditor.Instance;
+            SpellEditorIndex sei = new SpellEditorIndex(se);
+            se.Show();
+            sei.Show();
         }
     }
 }

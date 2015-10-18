@@ -11,6 +11,7 @@ namespace _5eCharGen
     {
         private static Dictionary<string, Race> races = new Dictionary<string, Race>();
         private static Dictionary<string, Feats> feats = new Dictionary<string, Feats>();
+        private static Dictionary<string, Spell> spells = new Dictionary<string, Spell>();
 
         private static ConsoleLog log = new ConsoleLog();
         static Data()
@@ -19,6 +20,7 @@ namespace _5eCharGen
             log.Show();
             races = Load<Race>();
             feats = Load<Feats>();
+            spells = Load<Spell>();
         }
 
         private static Dictionary<string, T> Load<T>(string dataPath = "\\Data") where T : IDataType
@@ -38,6 +40,16 @@ namespace _5eCharGen
                 }
             }
             return dictionary;
+        }
+
+        internal static IEnumerable<Spell> GetAllSpells()
+        {
+            return spells.Values;
+        }
+
+        public static Spell GetSpell(string name)
+        {
+            return spells[name];
         }
 
         public static IEnumerable<Race> GetAllRaces()

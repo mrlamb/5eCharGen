@@ -53,6 +53,7 @@ namespace _5eCharGen.View
         private void TextFieldName_TextChanged(object sender, EventArgs e)
         {
             CharacterName = (sender as TextFieldControl).Text;
+            Character.Name = CharacterName;
             CharacterNameChange(this, e);
         }
     }
