@@ -62,5 +62,18 @@ namespace _5eCharGen
             return races[name];
         }
 
+        public static void RemoveSpell(string name)
+        {
+            if (spells.ContainsKey(name))
+            {
+                spells.Remove(name);
+            }
+        }
+
+        public static void AddSpell(Spell spell)
+        {
+            spells.Add(spell.Name, spell);
+        }
+
     }
 }

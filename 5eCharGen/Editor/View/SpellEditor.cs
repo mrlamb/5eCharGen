@@ -47,6 +47,16 @@ namespace _5eCharGen.Editor.View
             {
                 comboBoxCastTime.Items.Add(time);
             }
+
+            UpdateIndex();
+        }
+
+        private void UpdateIndex()
+        {
+            foreach (Spell spell in Data.GetAllSpells())
+            {
+                comboBoxFieldSpellSelect.ComboBox.Items.Add(spell.Name);
+            }
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -84,6 +94,47 @@ namespace _5eCharGen.Editor.View
 
         public void LoadSpell(Spell spell)
         {
+
+        }
+
+        private void buttonAddNew_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            Spell newSpell = new Spell();
+            newSpell.Name = textFieldSpellName.Text.Length > 0 ? textFieldSpellName.Text : "Unnamed Spell";
+            newSpell.Level = comboBoxFieldSpellLevel.ComboBox.Items[comboBoxFieldSpellLevel.ComboBox.SelectedIndex].ToString(); 
+            newSpell.School = comboBoxSpellSchool.ComboBox.Items[comboBoxSpellSchool.ComboBox.SelectedIndex].ToString();
+            newSpell.Components["Verbal"] = spellComponentsControl1.Verbal;
+            newSpell.Components["Somatic"] = spellComponentsControl1.Somatic;
+            newSpell.Components["Material"] = spellComponentsControl1.Material;
+
+            newSpell.MaterialDescription = spellComponentsControl1.Text;
+
+            newSpell.CastTimeFrontPortion = textBoxCastTimeNumber.Text;
+            newSpell.CastTimeAction = comboBoxCastTime.Items[comboBoxCastTime.SelectedIndex].ToString();
+
+            newSpell.Duration = textFieldDuration.Text;
+            newSpell.Range = textFieldRange.Text;
+
+            newSpell.Description = textBoxDescription.Lines;
+
+            try
+            {
+                Spell test = Data.GetSpell(newSpell.Name);
+                Data.RemoveSpell(newSpell.Name);
+            }
+            catch (KeyNotFoundException)
+            {
+                // If KeyNotFound we'll just add our new spell
+            }
+            finally
+            {
+                Data.AddSpell(newSpell);
+            }
 
         }
     }

@@ -72,9 +72,8 @@ namespace _5eCharGen.View
         private void spellEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SpellEditor se = SpellEditor.Instance;
-            SpellEditorIndex sei = new SpellEditorIndex(se);
             se.Show();
-            sei.Show();
+          
         }
     }
 }

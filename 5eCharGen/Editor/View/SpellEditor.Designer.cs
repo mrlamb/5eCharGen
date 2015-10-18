@@ -31,8 +31,13 @@
             this.labelCastTime = new System.Windows.Forms.Label();
             this.textBoxCastTimeNumber = new System.Windows.Forms.TextBox();
             this.comboBoxCastTime = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonRemove = new System.Windows.Forms.Button();
+            this.buttonAddNew = new System.Windows.Forms.Button();
+            this.verticalDivider = new System.Windows.Forms.Label();
+            this.comboBoxFieldSpellSelect = new _5eCharGen.View.ComboBoxFieldControl();
             this.textFieldRange = new _5eCharGen.View.TextFieldControl();
             this.textFieldDuration = new _5eCharGen.View.TextFieldControl();
             this.spellComponentsControl1 = new _5eCharGen.Editor.View.SpellComponentsControl();
@@ -65,13 +70,13 @@
             this.comboBoxCastTime.Size = new System.Drawing.Size(121, 21);
             this.comboBoxCastTime.TabIndex = 6;
             // 
-            // textBox1
+            // textBoxDescription
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 226);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(485, 103);
-            this.textBox1.TabIndex = 9;
+            this.textBoxDescription.Location = new System.Drawing.Point(13, 226);
+            this.textBoxDescription.Multiline = true;
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.Size = new System.Drawing.Size(485, 103);
+            this.textBoxDescription.TabIndex = 9;
             // 
             // label1
             // 
@@ -81,6 +86,51 @@
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "Description";
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(658, 54);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.TabIndex = 14;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonRemove
+            // 
+            this.buttonRemove.Location = new System.Drawing.Point(586, 54);
+            this.buttonRemove.Name = "buttonRemove";
+            this.buttonRemove.Size = new System.Drawing.Size(66, 23);
+            this.buttonRemove.TabIndex = 13;
+            this.buttonRemove.Text = "Remove";
+            this.buttonRemove.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddNew
+            // 
+            this.buttonAddNew.Location = new System.Drawing.Point(513, 55);
+            this.buttonAddNew.Name = "buttonAddNew";
+            this.buttonAddNew.Size = new System.Drawing.Size(66, 23);
+            this.buttonAddNew.TabIndex = 12;
+            this.buttonAddNew.Text = "Add New";
+            this.buttonAddNew.UseVisualStyleBackColor = true;
+            this.buttonAddNew.Click += new System.EventHandler(this.buttonAddNew_Click);
+            // 
+            // verticalDivider
+            // 
+            this.verticalDivider.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.verticalDivider.Location = new System.Drawing.Point(504, 7);
+            this.verticalDivider.Name = "verticalDivider";
+            this.verticalDivider.Size = new System.Drawing.Size(2, 340);
+            this.verticalDivider.TabIndex = 15;
+            // 
+            // comboBoxFieldSpellSelect
+            // 
+            this.comboBoxFieldSpellSelect.LabelText = "Spell";
+            this.comboBoxFieldSpellSelect.Location = new System.Drawing.Point(513, 10);
+            this.comboBoxFieldSpellSelect.Name = "comboBoxFieldSpellSelect";
+            this.comboBoxFieldSpellSelect.Size = new System.Drawing.Size(220, 39);
+            this.comboBoxFieldSpellSelect.TabIndex = 11;
             // 
             // textFieldRange
             // 
@@ -101,9 +151,12 @@
             // spellComponentsControl1
             // 
             this.spellComponentsControl1.Location = new System.Drawing.Point(12, 60);
+            this.spellComponentsControl1.Material = false;
             this.spellComponentsControl1.Name = "spellComponentsControl1";
             this.spellComponentsControl1.Size = new System.Drawing.Size(240, 150);
+            this.spellComponentsControl1.Somatic = false;
             this.spellComponentsControl1.TabIndex = 4;
+            this.spellComponentsControl1.Verbal = false;
             // 
             // comboBoxSpellSchool
             // 
@@ -133,9 +186,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 352);
+            this.ClientSize = new System.Drawing.Size(745, 352);
+            this.Controls.Add(this.verticalDivider);
+            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.buttonRemove);
+            this.Controls.Add(this.buttonAddNew);
+            this.Controls.Add(this.comboBoxFieldSpellSelect);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.textFieldRange);
             this.Controls.Add(this.comboBoxCastTime);
             this.Controls.Add(this.textBoxCastTimeNumber);
@@ -164,7 +222,12 @@
         private _5eCharGen.View.TextFieldControl textFieldRange;
         private SpellComponentsControl spellComponentsControl1;
         private _5eCharGen.View.TextFieldControl textFieldDuration;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonRemove;
+        private System.Windows.Forms.Button buttonAddNew;
+        private _5eCharGen.View.ComboBoxFieldControl comboBoxFieldSpellSelect;
+        private System.Windows.Forms.Label verticalDivider;
     }
 }
