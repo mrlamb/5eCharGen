@@ -49,6 +49,12 @@ namespace _5eCharGen.Editor.View
             }
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            Hide();
+        }
+
         public void ClearForm()
         {
             foreach (Control ctrl in Controls)
