@@ -22,7 +22,7 @@ namespace _5eCharGen.View
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            Data.GetAllRaces();
+           
         }
        
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

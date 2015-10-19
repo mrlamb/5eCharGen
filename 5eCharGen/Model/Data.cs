@@ -1,5 +1,6 @@
 ﻿using _5eCharGen.View;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,6 +12,7 @@ namespace _5eCharGen
     {
         private static Dictionary<string, Race> races = new Dictionary<string, Race>();
         private static Dictionary<string, Feats> feats = new Dictionary<string, Feats>();
+
         private static Dictionary<string, Spell> spells = new Dictionary<string, Spell>();
 
         private static ConsoleLog log = new ConsoleLog();
@@ -38,8 +40,25 @@ namespace _5eCharGen
                     log.Add(string.Format("Adding new {0} - {1}\n\r", typeof(T).Name, data.Name));
                     dictionary.Add(data.Name, data);
                 }
+                
             }
             return dictionary;
+        }
+
+        private static void SaveSpells(string dataPath = "\\Data")
+        {
+            string filename = Directory.GetCurrentDirectory() + dataPath + "\\" + "Spell.json";
+
+            List<Spell> spellsOut = new List<Spell>();
+            foreach(KeyValuePair<string, Spell> pair in spells)
+            {
+                spellsOut.Add(pair.Value);
+            }         
+            using (StreamWriter sw = new StreamWriter(filename))
+            {
+                sw.Write(JsonConvert.SerializeObject(spellsOut, Formatting.Indented));
+                
+            }
         }
 
         internal static IEnumerable<Spell> GetAllSpells()
@@ -67,12 +86,14 @@ namespace _5eCharGen
             if (spells.ContainsKey(name))
             {
                 spells.Remove(name);
+                SaveSpells();
             }
         }
 
         public static void AddSpell(Spell spell)
         {
             spells.Add(spell.Name, spell);
+            SaveSpells();
         }
 
     }

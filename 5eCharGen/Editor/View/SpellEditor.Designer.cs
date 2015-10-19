@@ -44,6 +44,7 @@
             this.comboBoxSpellSchool = new _5eCharGen.View.ComboBoxFieldControl();
             this.comboBoxFieldSpellLevel = new _5eCharGen.View.ComboBoxFieldControl();
             this.textFieldSpellName = new _5eCharGen.View.TextFieldControl();
+            this.checkBoxRitual = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // labelCastTime
@@ -67,7 +68,7 @@
             this.comboBoxCastTime.FormattingEnabled = true;
             this.comboBoxCastTime.Location = new System.Drawing.Point(263, 76);
             this.comboBoxCastTime.Name = "comboBoxCastTime";
-            this.comboBoxCastTime.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCastTime.Size = new System.Drawing.Size(109, 21);
             this.comboBoxCastTime.TabIndex = 6;
             // 
             // textBoxDescription
@@ -105,6 +106,7 @@
             this.buttonRemove.TabIndex = 13;
             this.buttonRemove.Text = "Remove";
             this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
             // buttonAddNew
             // 
@@ -182,11 +184,22 @@
             this.textFieldSpellName.Size = new System.Drawing.Size(208, 39);
             this.textFieldSpellName.TabIndex = 0;
             // 
+            // checkBoxRitual
+            // 
+            this.checkBoxRitual.AutoSize = true;
+            this.checkBoxRitual.Location = new System.Drawing.Point(389, 125);
+            this.checkBoxRitual.Name = "checkBoxRitual";
+            this.checkBoxRitual.Size = new System.Drawing.Size(53, 17);
+            this.checkBoxRitual.TabIndex = 16;
+            this.checkBoxRitual.Text = "Ritual";
+            this.checkBoxRitual.UseVisualStyleBackColor = true;
+            // 
             // SpellEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 352);
+            this.Controls.Add(this.checkBoxRitual);
             this.Controls.Add(this.verticalDivider);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonRemove);
@@ -229,5 +242,6 @@
         private System.Windows.Forms.Button buttonAddNew;
         private _5eCharGen.View.ComboBoxFieldControl comboBoxFieldSpellSelect;
         private System.Windows.Forms.Label verticalDivider;
+        private System.Windows.Forms.CheckBox checkBoxRitual;
     }
 }
