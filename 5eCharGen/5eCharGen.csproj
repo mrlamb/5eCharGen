@@ -69,6 +69,7 @@
     <Compile Include="Model\Character.cs" />
     <Compile Include="Model\CharClass.cs" />
     <Compile Include="Interfaces\ICharacter.cs" />
+    <Compile Include="Model\Notation.cs" />
     <Compile Include="View\AttributeBlock.cs">
       <SubType>UserControl</SubType>
     </Compile>
