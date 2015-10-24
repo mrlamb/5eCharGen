@@ -66,6 +66,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\CharacterController.cs" />
+    <Compile Include="Editor\View\ProficiencyEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\View\ProficiencyEditor.Designer.cs">
+      <DependentUpon>ProficiencyEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\View\SpellComponentsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -78,15 +84,10 @@
     <Compile Include="Editor\View\SpellEditor.Designer.cs">
       <DependentUpon>SpellEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editor\View\SpellEditorIndex.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Editor\View\SpellEditorIndex.Designer.cs">
-      <DependentUpon>SpellEditorIndex.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\Character.cs" />
     <Compile Include="Model\CharClass.cs" />
     <Compile Include="Interfaces\ICharacter.cs" />
+    <Compile Include="Model\Data2.cs" />
     <Compile Include="View\AttributeBlock.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -118,7 +119,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Race.cs" />
-    <Compile Include="Model\Skills.cs" />
+    <Compile Include="Model\Proficiency.cs" />
     <Compile Include="Model\SpecialAbility.cs" />
     <Compile Include="Model\Spell.cs" />
     <Compile Include="View\ComboBoxFieldControl.cs">
@@ -133,14 +134,14 @@
     <Compile Include="View\TextFieldControl.Designer.cs">
       <DependentUpon>TextFieldControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Editor\View\ProficiencyEditor.resx">
+      <DependentUpon>ProficiencyEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\View\SpellComponentsControl.resx">
       <DependentUpon>SpellComponentsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\View\SpellEditor.resx">
       <DependentUpon>SpellEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\View\SpellEditorIndex.resx">
-      <DependentUpon>SpellEditorIndex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AttributeBlock.resx">
       <DependentUpon>AttributeBlock.cs</DependentUpon>
@@ -162,6 +163,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\ComboBoxFieldControl.resx">
       <DependentUpon>ComboBoxFieldControl.cs</DependentUpon>
@@ -201,6 +203,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewDocumentHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveHS.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

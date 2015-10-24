@@ -107,17 +107,15 @@ namespace _5eCharGen.Editor.View
                 comboBoxFieldSpellLevel.ComboBox.Items.Add(i.ToString());
             }
 
-            string[] spellSchools = {"Abjuration", "Alteration", "Conjuration", "Divination",
-                                        "Evocation", "Illusion", "Necromancy", "Transmutation" };
 
-            foreach (string school in spellSchools)
+            foreach (string school in new string[] {"Abjuration", "Alteration", "Conjuration", "Divination",
+                "Evocation", "Illusion", "Necromancy", "Transmutation"})
             {
                 comboBoxSpellSchool.ComboBox.Items.Add(school);
             }
 
-            string[] actionDurations = { "bonus action", "action", "reaction", "turn", "minute(s)", "hour(s)" };
 
-            foreach (string time in actionDurations)
+            foreach (string time in new string[] { "bonus action", "action", "reaction", "turn", "minute(s)", "hour(s)" })
             {
                 comboBoxCastTime.Items.Add(time);
             }
@@ -129,7 +127,7 @@ namespace _5eCharGen.Editor.View
         {
             if (comboBoxFieldSpellSelect.ComboBox.SelectedItem != null)
             {
-                string spellName = comboBoxFieldSpellSelect.ComboBox.SelectedItem != null ? comboBoxFieldSpellSelect.ComboBox.SelectedItem.ToString() : string.Empty;
+                string spellName = comboBoxFieldSpellSelect.ComboBox.SelectedItem.ToString();
                 LoadSpell(spellName);
             }
         }

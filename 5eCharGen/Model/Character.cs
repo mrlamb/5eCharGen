@@ -14,7 +14,7 @@ namespace _5eCharGen
         public List<CharClass> Classes { get; set; }
         public Race Race { get; set; }
         public Dictionary<string, int> Attributes { get; set; }
-        public List<Skills> Skills { get; set; }
+        public Dictionary<string, Dictionary<string, Proficiency>> Proficiencies { get; set; }
         public List<Feats> Feats { get; set; }
         public Inventory Inventory { get; set; }
 
@@ -29,6 +29,8 @@ namespace _5eCharGen
                 {"INT", 8 },
                 {"CHA", 8 }
             };
+
+            Proficiencies = new Dictionary<string, Dictionary<string, Proficiency>>();
         }
 
         public Character(StreamReader sr)

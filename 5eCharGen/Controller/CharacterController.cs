@@ -13,7 +13,7 @@ namespace _5eCharGen.Controller
         public IList<CharClass> Classes { get; set; }
         public Race Race { get; set; }
         public IDictionary<string, int> Attributes { get; set; }
-        public IList<Skills> Skills { get; set; }
+        public IList<Proficiency> Proficiencies { get; set; }
         public IList<Feats> Feats { get; set; }
         //public Inventory Inventory { get; set; }
 

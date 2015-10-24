@@ -90,31 +90,31 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(658, 54);
+            this.buttonSave.Image = global::_5eCharGen.Properties.Resources.saveHS;
+            this.buttonSave.Location = new System.Drawing.Point(603, 55);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.Size = new System.Drawing.Size(32, 32);
             this.buttonSave.TabIndex = 14;
-            this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonRemove
             // 
-            this.buttonRemove.Location = new System.Drawing.Point(586, 54);
+            this.buttonRemove.Image = global::_5eCharGen.Properties.Resources.DeleteHS;
+            this.buttonRemove.Location = new System.Drawing.Point(565, 55);
             this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(66, 23);
+            this.buttonRemove.Size = new System.Drawing.Size(32, 32);
             this.buttonRemove.TabIndex = 13;
-            this.buttonRemove.Text = "Remove";
             this.buttonRemove.UseVisualStyleBackColor = true;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
             // buttonAddNew
             // 
-            this.buttonAddNew.Location = new System.Drawing.Point(513, 55);
+            this.buttonAddNew.Image = global::_5eCharGen.Properties.Resources.NewDocumentHS;
+            this.buttonAddNew.Location = new System.Drawing.Point(527, 55);
             this.buttonAddNew.Name = "buttonAddNew";
-            this.buttonAddNew.Size = new System.Drawing.Size(66, 23);
+            this.buttonAddNew.Size = new System.Drawing.Size(32, 32);
             this.buttonAddNew.TabIndex = 12;
-            this.buttonAddNew.Text = "Add New";
             this.buttonAddNew.UseVisualStyleBackColor = true;
             this.buttonAddNew.Click += new System.EventHandler(this.buttonAddNew_Click);
             // 

@@ -13,7 +13,7 @@ namespace _5eCharGen
         IList<CharClass> Classes { get; set; }
         Race Race { get; set; }
         IDictionary<string, int> Attributes { get; set; }
-        IList<Skills> Skills { get; set; }
+        IList<Proficiency> Proficiencies { get; set; }
         IList<Feats> Feats { get; set; }
         //Inventory Inventory { get; set; }
     }

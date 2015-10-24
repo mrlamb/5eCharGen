@@ -39,9 +39,10 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.closeCharacterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabCharacters = new System.Windows.Forms.TabControl();
             this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spellEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabCharacters = new System.Windows.Forms.TabControl();
+            this.proficiencyEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,6 +126,22 @@
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // dataToolStripMenuItem
+            // 
+            this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.proficiencyEditorToolStripMenuItem,
+            this.spellEditorToolStripMenuItem});
+            this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.dataToolStripMenuItem.Text = "Data";
+            // 
+            // spellEditorToolStripMenuItem
+            // 
+            this.spellEditorToolStripMenuItem.Name = "spellEditorToolStripMenuItem";
+            this.spellEditorToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.spellEditorToolStripMenuItem.Text = "Spell Editor";
+            this.spellEditorToolStripMenuItem.Click += new System.EventHandler(this.spellEditorToolStripMenuItem_Click);
+            // 
             // tabCharacters
             // 
             this.tabCharacters.Alignment = System.Windows.Forms.TabAlignment.Bottom;
@@ -136,20 +153,12 @@
             this.tabCharacters.Size = new System.Drawing.Size(740, 475);
             this.tabCharacters.TabIndex = 3;
             // 
-            // dataToolStripMenuItem
+            // proficiencyEditorToolStripMenuItem
             // 
-            this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.spellEditorToolStripMenuItem});
-            this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
-            this.dataToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.dataToolStripMenuItem.Text = "Data";
-            // 
-            // spellEditorToolStripMenuItem
-            // 
-            this.spellEditorToolStripMenuItem.Name = "spellEditorToolStripMenuItem";
-            this.spellEditorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.spellEditorToolStripMenuItem.Text = "Spell Editor";
-            this.spellEditorToolStripMenuItem.Click += new System.EventHandler(this.spellEditorToolStripMenuItem_Click);
+            this.proficiencyEditorToolStripMenuItem.Name = "proficiencyEditorToolStripMenuItem";
+            this.proficiencyEditorToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.proficiencyEditorToolStripMenuItem.Text = "Proficiency Editor";
+            this.proficiencyEditorToolStripMenuItem.Click += new System.EventHandler(this.proficiencyEditorToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -185,6 +194,7 @@
         private System.Windows.Forms.TabControl tabCharacters;
         private System.Windows.Forms.ToolStripMenuItem dataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem spellEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem proficiencyEditorToolStripMenuItem;
     }
 }
 

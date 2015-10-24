@@ -6,14 +6,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
+//This file is responsible for setting up the data constructs and handling loading and saving of the parts to file
+// See file Data2.cs for individual type based methods
+
 namespace _5eCharGen
 {
-    public static class Data
+    public static partial class Data
     {
         private static Dictionary<string, Race> races = new Dictionary<string, Race>();
         private static Dictionary<string, Feats> feats = new Dictionary<string, Feats>();
 
         private static Dictionary<string, Spell> spells = new Dictionary<string, Spell>();
+        private static Dictionary<string, Proficiency> proficiencies = new Dictionary<string, Proficiency>();
 
         private static ConsoleLog log = new ConsoleLog();
         static Data()
@@ -23,6 +27,7 @@ namespace _5eCharGen
             races = Load<Race>();
             feats = Load<Feats>();
             spells = Load<Spell>();
+            proficiencies = Load<Proficiency>();
         }
 
         private static Dictionary<string, T> Load<T>(string dataPath = "\\Data") where T : IDataType
@@ -45,56 +50,23 @@ namespace _5eCharGen
             return dictionary;
         }
 
-        private static void SaveSpells(string dataPath = "\\Data")
+        private static void Save<T>(Dictionary<string, T> data, string dataPath = "\\Data")
         {
-            string filename = Directory.GetCurrentDirectory() + dataPath + "\\" + "Spell.json";
+            string filename = Directory.GetCurrentDirectory() + dataPath + "\\" + typeof(T).Name + ".json";
 
-            List<Spell> spellsOut = new List<Spell>();
-            foreach(KeyValuePair<string, Spell> pair in spells)
+            List<T> Out = new List<T>();
+            foreach(KeyValuePair<string, T> pair in data)
             {
-                spellsOut.Add(pair.Value);
+                Out.Add(pair.Value);
             }         
             using (StreamWriter sw = new StreamWriter(filename))
             {
-                sw.Write(JsonConvert.SerializeObject(spellsOut, Formatting.Indented));
+                sw.Write(JsonConvert.SerializeObject(Out, Formatting.Indented));
                 
             }
         }
 
-        internal static IEnumerable<Spell> GetAllSpells()
-        {
-            return spells.Values;
-        }
-
-        public static Spell GetSpell(string name)
-        {
-            return spells[name];
-        }
-
-        public static IEnumerable<Race> GetAllRaces()
-        {
-            return races.Values;
-        }
-
-        public static Race GetRace(string name)
-        {
-            return races[name];
-        }
-
-        public static void RemoveSpell(string name)
-        {
-            if (spells.ContainsKey(name))
-            {
-                spells.Remove(name);
-                SaveSpells();
-            }
-        }
-
-        public static void AddSpell(Spell spell)
-        {
-            spells.Add(spell.Name, spell);
-            SaveSpells();
-        }
+        
 
     }
 }
