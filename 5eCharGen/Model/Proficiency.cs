@@ -7,6 +7,7 @@ namespace _5eCharGen
         public string Name { get; set; }
         public bool Learned { get; set; }
         public ProfType Type { get; set; }
+        public bool Expertise { get; set; }
         
     }
 }
