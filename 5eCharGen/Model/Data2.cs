@@ -47,6 +47,31 @@ namespace _5eCharGen
             return races[name];
         }
 
+        //Special abilities
+        internal static IEnumerable<SpecialAbility> GetAllSAs()
+        {
+            return specialAbilities.Values;
+        }
+
+        internal static SpecialAbility GetSA(string name)
+        {
+            return specialAbilities[name];
+        }
+
+        internal static void AddSA(SpecialAbility sa)
+        {
+            specialAbilities.Add(sa.Name, sa);
+            Save<SpecialAbility>(specialAbilities);
+        }
+
+        internal static void RemoveSA(string name)
+        {
+            if (specialAbilities.ContainsKey(name))
+            {
+                specialAbilities.Remove(name);
+                Save<SpecialAbility>(specialAbilities);
+            }
+        }
 
         //Spells
         internal static IEnumerable<Spell> GetAllSpells()

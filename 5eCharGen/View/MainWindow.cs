@@ -81,5 +81,11 @@ namespace _5eCharGen.View
             ProficiencyEditor pe = new ProficiencyEditor();
             pe.Show();
         }
+
+        private void specialAbilityEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SpecialAbilityEditor sae = new SpecialAbilityEditor();
+            sae.Show();
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace _5eCharGen.Editor.View
         {
             InitializeComponent();
             UpdateIndex();
-            comboBoxFieldProficiencySelect.ComboBoxTextChanged += 
+            comboBoxFieldProficiencySelect.ComboBoxTextChanged +=
                 new EventHandler(comboBoxFieldProficiencySelect_SelectedIndexChanged);
         }
 
@@ -34,7 +34,9 @@ namespace _5eCharGen.Editor.View
         {
             Proficiency pf = Data.GetProficiency(name);
             textFieldProfName.Text = pf.Name;
-            comboBoxProfType.ComboBox.SelectedIndex = (int) pf.Type;
+            comboBoxProfType.ComboBox.SelectedIndex = (int)pf.Type;
+            comboBoxFieldDerivedStat.ComboBox.SelectedIndex = ((int)pf.DerivedStat >= 8 &&
+                (int)pf.DerivedStat <= 13) ? (int)pf.DerivedStat : -1;
         }
 
         private void UpdateIndex()
@@ -43,7 +45,7 @@ namespace _5eCharGen.Editor.View
 
             for (ProfType pt = ProfType.Weapon; pt <= ProfType.Tool; pt++)
             {
-                comboBoxProfType.ComboBox.Items.Add(pt.ToString());
+                comboBoxProfType.ComboBox.Items.Add(pt);
             }
 
             comboBoxFieldProficiencySelect.ComboBox.Items.Clear();
@@ -51,13 +53,21 @@ namespace _5eCharGen.Editor.View
             {
                 comboBoxFieldProficiencySelect.ComboBox.Items.Add(pf.Name);
             }
+
+            comboBoxFieldDerivedStat.ComboBox.Items.Clear();
+            for (NotationType stat = NotationType.STR; stat <= NotationType.CHA; stat++)
+            {
+                comboBoxFieldDerivedStat.ComboBox.Items.Add(stat);
+            }
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
             Proficiency pf = new Proficiency();
             pf.Name = textFieldProfName.Text;
-            pf.Type = (ProfType) comboBoxProfType.ComboBox.SelectedIndex;
+            pf.Type = (ProfType)comboBoxProfType.ComboBox.SelectedIndex;
+            pf.DerivedStat = comboBoxFieldDerivedStat.ComboBox.SelectedIndex != -1 ?
+                (NotationType)comboBoxFieldDerivedStat.ComboBox.SelectedIndex : NotationType.PROF;
             try
             {
                 Data.RemoveProficiency(pf.Name);
@@ -77,9 +87,9 @@ namespace _5eCharGen.Editor.View
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
-            string pf = comboBoxFieldProficiencySelect.ComboBox.SelectedItem.ToString();
-            if (pf.Length > 0)
+            if (comboBoxFieldProficiencySelect.ComboBox.SelectedItem != null)
             {
+                string pf = comboBoxFieldProficiencySelect.ComboBox.SelectedItem.ToString();
                 DialogResult dr = MessageBox.Show(string.Format("Are you sure you want to remove the proficiency: {0}"
                     , pf), "Confirm", MessageBoxButtons.YesNo);
                 switch (dr)
@@ -105,7 +115,5 @@ namespace _5eCharGen.Editor.View
         {
             ClearForm();
         }
-
-
     }
 }

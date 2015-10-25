@@ -72,6 +72,12 @@
     <Compile Include="Editor\View\ProficiencyEditor.Designer.cs">
       <DependentUpon>ProficiencyEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Editor\View\SpecialAbilityEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\View\SpecialAbilityEditor.Designer.cs">
+      <DependentUpon>SpecialAbilityEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\View\SpellComponentsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -87,6 +93,7 @@
     <Compile Include="Model\Character.cs" />
     <Compile Include="Model\CharClass.cs" />
     <Compile Include="Interfaces\ICharacter.cs" />
+    <Compile Include="Model\Notation.cs" />
     <Compile Include="Model\Data2.cs" />
     <Compile Include="View\AttributeBlock.cs">
       <SubType>UserControl</SubType>
@@ -136,6 +143,9 @@
     </Compile>
     <EmbeddedResource Include="Editor\View\ProficiencyEditor.resx">
       <DependentUpon>ProficiencyEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\View\SpecialAbilityEditor.resx">
+      <DependentUpon>SpecialAbilityEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\View\SpellComponentsControl.resx">
       <DependentUpon>SpellComponentsControl.cs</DependentUpon>
@@ -212,6 +222,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\saveHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_Down_16xLG.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

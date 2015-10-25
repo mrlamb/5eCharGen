@@ -34,12 +34,13 @@
             this.comboBoxProfType = new _5eCharGen.View.ComboBoxFieldControl();
             this.textFieldProfName = new _5eCharGen.View.TextFieldControl();
             this.comboBoxFieldProficiencySelect = new _5eCharGen.View.ComboBoxFieldControl();
+            this.comboBoxFieldDerivedStat = new _5eCharGen.View.ComboBoxFieldControl();
             this.SuspendLayout();
             // 
             // buttonSave
             // 
             this.buttonSave.Image = global::_5eCharGen.Properties.Resources.saveHS;
-            this.buttonSave.Location = new System.Drawing.Point(89, 111);
+            this.buttonSave.Location = new System.Drawing.Point(89, 146);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(32, 32);
             this.buttonSave.TabIndex = 3;
@@ -49,7 +50,7 @@
             // buttonRemove
             // 
             this.buttonRemove.Image = global::_5eCharGen.Properties.Resources.DeleteHS;
-            this.buttonRemove.Location = new System.Drawing.Point(51, 111);
+            this.buttonRemove.Location = new System.Drawing.Point(51, 146);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(32, 32);
             this.buttonRemove.TabIndex = 4;
@@ -59,7 +60,7 @@
             // buttonNew
             // 
             this.buttonNew.Image = global::_5eCharGen.Properties.Resources.NewDocumentHS;
-            this.buttonNew.Location = new System.Drawing.Point(13, 111);
+            this.buttonNew.Location = new System.Drawing.Point(13, 146);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(32, 32);
             this.buttonNew.TabIndex = 5;
@@ -90,11 +91,20 @@
             this.comboBoxFieldProficiencySelect.Size = new System.Drawing.Size(230, 39);
             this.comboBoxFieldProficiencySelect.TabIndex = 0;
             // 
+            // comboBoxFieldDerivedStat
+            // 
+            this.comboBoxFieldDerivedStat.LabelText = "Derived Stat (If Any)";
+            this.comboBoxFieldDerivedStat.Location = new System.Drawing.Point(13, 103);
+            this.comboBoxFieldDerivedStat.Name = "comboBoxFieldDerivedStat";
+            this.comboBoxFieldDerivedStat.Size = new System.Drawing.Size(123, 39);
+            this.comboBoxFieldDerivedStat.TabIndex = 6;
+            // 
             // ProficiencyEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(254, 165);
+            this.ClientSize = new System.Drawing.Size(254, 190);
+            this.Controls.Add(this.comboBoxFieldDerivedStat);
             this.Controls.Add(this.buttonNew);
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.buttonSave);
@@ -118,5 +128,6 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.Button buttonNew;
+        private _5eCharGen.View.ComboBoxFieldControl comboBoxFieldDerivedStat;
     }
 }

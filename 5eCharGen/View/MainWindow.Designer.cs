@@ -40,9 +40,10 @@
             this.closeCharacterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proficiencyEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spellEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabCharacters = new System.Windows.Forms.TabControl();
-            this.proficiencyEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.specialAbilityEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,15 +131,23 @@
             // 
             this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.proficiencyEditorToolStripMenuItem,
+            this.specialAbilityEditorToolStripMenuItem,
             this.spellEditorToolStripMenuItem});
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
             this.dataToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.dataToolStripMenuItem.Text = "Data";
             // 
+            // proficiencyEditorToolStripMenuItem
+            // 
+            this.proficiencyEditorToolStripMenuItem.Name = "proficiencyEditorToolStripMenuItem";
+            this.proficiencyEditorToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.proficiencyEditorToolStripMenuItem.Text = "Proficiency Editor";
+            this.proficiencyEditorToolStripMenuItem.Click += new System.EventHandler(this.proficiencyEditorToolStripMenuItem_Click);
+            // 
             // spellEditorToolStripMenuItem
             // 
             this.spellEditorToolStripMenuItem.Name = "spellEditorToolStripMenuItem";
-            this.spellEditorToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.spellEditorToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.spellEditorToolStripMenuItem.Text = "Spell Editor";
             this.spellEditorToolStripMenuItem.Click += new System.EventHandler(this.spellEditorToolStripMenuItem_Click);
             // 
@@ -153,12 +162,12 @@
             this.tabCharacters.Size = new System.Drawing.Size(740, 475);
             this.tabCharacters.TabIndex = 3;
             // 
-            // proficiencyEditorToolStripMenuItem
+            // specialAbilityEditorToolStripMenuItem
             // 
-            this.proficiencyEditorToolStripMenuItem.Name = "proficiencyEditorToolStripMenuItem";
-            this.proficiencyEditorToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.proficiencyEditorToolStripMenuItem.Text = "Proficiency Editor";
-            this.proficiencyEditorToolStripMenuItem.Click += new System.EventHandler(this.proficiencyEditorToolStripMenuItem_Click);
+            this.specialAbilityEditorToolStripMenuItem.Name = "specialAbilityEditorToolStripMenuItem";
+            this.specialAbilityEditorToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.specialAbilityEditorToolStripMenuItem.Text = "Special Ability Editor";
+            this.specialAbilityEditorToolStripMenuItem.Click += new System.EventHandler(this.specialAbilityEditorToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -195,6 +204,7 @@
         private System.Windows.Forms.ToolStripMenuItem dataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem spellEditorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proficiencyEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem specialAbilityEditorToolStripMenuItem;
     }
 }
 

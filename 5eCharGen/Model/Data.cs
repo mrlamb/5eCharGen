@@ -19,6 +19,8 @@ namespace _5eCharGen
         private static Dictionary<string, Spell> spells = new Dictionary<string, Spell>();
         private static Dictionary<string, Proficiency> proficiencies = new Dictionary<string, Proficiency>();
 
+        private static Dictionary<string, SpecialAbility> specialAbilities = new Dictionary<string, SpecialAbility>();
+
         private static ConsoleLog log = new ConsoleLog();
         static Data()
         {
@@ -28,6 +30,7 @@ namespace _5eCharGen
             feats = Load<Feats>();
             spells = Load<Spell>();
             proficiencies = Load<Proficiency>();
+            specialAbilities = Load<SpecialAbility>();
         }
 
         private static Dictionary<string, T> Load<T>(string dataPath = "\\Data") where T : IDataType

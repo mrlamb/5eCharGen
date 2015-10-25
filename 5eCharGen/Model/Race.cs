@@ -6,7 +6,7 @@ namespace _5eCharGen
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<SpecialAbility> RacialAbilities { get; set; }
+        public List<string> RacialAbilities { get; set; }
         public Dictionary<string, int> RacialStatChange { get; set; }
         public int Speed { get; set; }
         public List<string> Languages { get; set; }

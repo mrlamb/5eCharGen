@@ -8,7 +8,8 @@ namespace _5eCharGen
         public bool Learned { get; set; }
         public ProfType Type { get; set; }
         public bool Expertise { get; set; }
-        
+        public NotationType DerivedStat { get; set; }
+
     }
 }
 

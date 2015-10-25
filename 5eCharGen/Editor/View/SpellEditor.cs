@@ -80,10 +80,10 @@ namespace _5eCharGen.Editor.View
             set { textFieldDuration.Text = value; }
         }
 
-        public string[] Description
+        public string Description
         {
-            get { return textBoxDescription.Lines; }
-            set { textBoxDescription.Lines = value; }
+            get { return textBoxDescription.Text; }
+            set { textBoxDescription.Text = value; }
         }
 
         public bool Ritual

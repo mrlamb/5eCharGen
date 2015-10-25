@@ -12,15 +12,14 @@ namespace _5eCharGen
         public List<string> SpellsAdded { get; set; }
         public List<string> ProficienciesAdded { get; set; }
         public string ACBonus { get; set; }
-        public int SpeedIncrease { get; set; }
+        public string SpeedIncrease { get; set; }
+        public Dictionary<string, string> ProficienciesAltered { get; set; }
         
-
-
-
         public SpecialAbility()
         {
             AttributeBonus = new Dictionary<string, int>();
             SpellsAdded = new List<string>();
+            ProficienciesAltered = new Dictionary<string, string>();
         }
 
 
