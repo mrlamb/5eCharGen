@@ -1,4 +1,5 @@
 ﻿using _5eCharGen.View;
+using _5eCharGen.View.Localization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,10 +18,18 @@ namespace _5eCharGen.Editor.View
         {
             InitializeComponent();
             UpdateIndex();
+            Lang lang = Lang.GetInstance();
+            ToolTip tt = new ToolTip();
+            tt.SetToolTip(buttonAddProf, lang.Get("BTN_ADD_PROF"));
+            tt.SetToolTip(buttonAddProfValue, lang.Get("BTN_ADD_PROF_VALUE"));
+            tt.SetToolTip(buttonAddNewProf, lang.Get("BTN_ADD_NEW_PROF"));
+            tt.SetToolTip(buttonRefresh, lang.Get("BTN_REFRESH"));
         }
 
         private void UpdateIndex()
         {
+            comboBoxFieldSAName.ComboBox.Items.Clear();
+
             foreach (SpecialAbility sa in Data.GetAllSAs().OrderBy(x => x.Name))
             {
                 comboBoxFieldSAName.ComboBox.Items.Add(sa.Name);
@@ -29,6 +38,17 @@ namespace _5eCharGen.Editor.View
             comboBoxFieldSAName.ComboBoxTextChanged +=
                 new EventHandler(comboBoxFieldSAName_SelectedIndexChanged);
 
+            comboBoxFieldControlProfName.ComboBox.Items.Clear();
+            foreach (Proficiency pf in Data.GetAllProficiencies().OrderBy(x => x.Name))
+            {
+                comboBoxFieldControlProfName.ComboBox.Items.Add(pf.Name);
+            }
+
+            comboBoxFieldSpellName.ComboBox.Items.Clear();
+            foreach (Spell spell in Data.GetAllSpells().OrderBy(x => x.Name))
+            {
+                comboBoxFieldSpellName.ComboBox.Items.Add(spell.Name);
+            }
         }
 
         private void comboBoxFieldSAName_SelectedIndexChanged(object sender, EventArgs e)
@@ -87,15 +107,20 @@ namespace _5eCharGen.Editor.View
         {
             if (comboBoxFieldControlProfName.ComboBox.SelectedItem != null)
             {
+                foreach (string name in comboBoxProfAdded.Items)
+                {
+                    if (name.Equals(comboBoxFieldControlProfName.ComboBox.SelectedItem.ToString()))
+                    {
+                        MessageBox.Show("Duplicates not allowed");
+                        return;
+                    }
+                }
                 comboBoxProfAdded.Items.Add(comboBoxFieldControlProfName.ComboBox.Text);
+                comboBoxProfAdded.SelectedIndex = comboBoxProfAdded.Items.Count - 1;
             }
-        }
-
-        private void comboBoxFieldControlProfName_Load(object sender, EventArgs e)
-        {
-            foreach (Proficiency pf in Data.GetAllProficiencies().OrderBy(x => x.Name))
+            else
             {
-                comboBoxFieldControlProfName.ComboBox.Items.Add(pf.Name);
+                MessageBox.Show("Select a proficiency to add.");
             }
         }
 
@@ -113,21 +138,33 @@ namespace _5eCharGen.Editor.View
         {
             int value;
             NotationType type;
-            if (textBoxProfValue.Text.Length > 0)
+            if (textBoxProfValue.Text.Length > 0 && comboBoxFieldControlProfName.ComboBox.SelectedIndex != -1)
+            {
                 if (Int32.TryParse(textBoxProfValue.Text, out value))
                 {
                     comboBoxProfValue.Items.Add(String.Format("{0} - {1}",
                         comboBoxFieldControlProfName.ComboBox.Text, textBoxProfValue.Text));
+                    comboBoxProfValue.SelectedIndex = comboBoxProfValue.Items.Count - 1;
                 }
                 else if (Enum.TryParse<NotationType>(textBoxProfValue.Text, out type))
                 {
                     comboBoxProfValue.Items.Add(String.Format("{0} - {1}",
                       comboBoxFieldControlProfName.ComboBox.Text, textBoxProfValue.Text));
+                    comboBoxProfValue.SelectedIndex = comboBoxProfValue.Items.Count - 1;
                 }
                 else
                 {
                     MessageBox.Show("Sorry, no matching Stat or numeral given. Are you sure you entered it right?", "Error in input");
                 }
+            }
+            else if(textBoxProfValue.Text.Length == 0)
+            {
+                MessageBox.Show("Enter a value in the box to add to the selected proficiency.");
+            }
+            else
+            {
+                MessageBox.Show("Select a proficiency to add.");
+            }
         }
 
 
@@ -138,14 +175,6 @@ namespace _5eCharGen.Editor.View
                 comboBoxProfValue.Items.Remove(comboBoxProfValue.SelectedItem);
                 comboBoxProfValue.SelectedIndex = -1;
                 comboBoxProfValue.Text = string.Empty;
-            }
-        }
-
-        private void comboBoxFieldSpellName_Load(object sender, EventArgs e)
-        {
-            foreach (Spell spell in Data.GetAllSpells().OrderBy(x => x.Name))
-            {
-                comboBoxFieldSpellName.ComboBox.Items.Add(spell.Name);
             }
         }
 
@@ -254,7 +283,7 @@ namespace _5eCharGen.Editor.View
 
             //Proficiencies Tab
             List<string> profs = new List<String>();
-            foreach(object prof in comboBoxProfAdded.Items)
+            foreach (object prof in comboBoxProfAdded.Items)
             {
                 profs.Add(prof.ToString());
             }
@@ -264,7 +293,7 @@ namespace _5eCharGen.Editor.View
             Dictionary<string, string> profsValue = new Dictionary<string, string>();
             foreach (object prof in comboBoxProfValue.Items)
             {
-                profsValue.Add(prof.ToString().Substring(0, prof.ToString().IndexOf('-')), 
+                profsValue.Add(prof.ToString().Substring(0, prof.ToString().IndexOf('-')),
                     prof.ToString().Substring(prof.ToString().IndexOf('-') + 1));
             }
             sa.ProficienciesAltered = profsValue;
@@ -299,6 +328,30 @@ namespace _5eCharGen.Editor.View
             UpdateIndex();
 
 
+        }
+
+        private void Summary_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Summary.Checked)
+            {
+                this.Height += 200;
+            }
+            else
+            {
+                this.Height -= 200;
+            }
+
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            UpdateIndex();
+        }
+
+        private void buttonAddNewProf_Click(object sender, EventArgs e)
+        {
+            ProficiencyEditor pe = new ProficiencyEditor();
+            pe.Show();
         }
     }
 }

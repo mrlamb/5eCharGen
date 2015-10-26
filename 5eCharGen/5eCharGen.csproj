@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="Model\Data.cs" />
     <Compile Include="Model\Feats.cs" />
+    <Compile Include="View\Localization\Lang.cs" />
     <Compile Include="View\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +226,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\arrow_Down_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddMark_10580.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

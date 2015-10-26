@@ -1,4 +1,5 @@
 ﻿using _5eCharGen.Editor.View;
+using _5eCharGen.View.Localization;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace _5eCharGen.View
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-           
+            Lang lang = Lang.GetInstance();
         }
        
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

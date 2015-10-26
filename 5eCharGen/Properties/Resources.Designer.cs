@@ -63,6 +63,16 @@ namespace _5eCharGen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddMark_10580 {
+            get {
+                object obj = ResourceManager.GetObject("AddMark_10580", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_Down_16xLG {
             get {
                 object obj = ResourceManager.GetObject("arrow_Down_16xLG", resourceCulture);
@@ -86,6 +96,16 @@ namespace _5eCharGen.Properties {
         internal static System.Drawing.Bitmap NewDocumentHS {
             get {
                 object obj = ResourceManager.GetObject("NewDocumentHS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refresh_16xLG {
+            get {
+                object obj = ResourceManager.GetObject("refresh_16xLG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
