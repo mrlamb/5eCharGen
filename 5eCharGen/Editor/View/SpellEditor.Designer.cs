@@ -218,6 +218,7 @@
             this.Controls.Add(this.textFieldSpellName);
             this.Name = "SpellEditor";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "SpellEditor";
             this.ResumeLayout(false);
             this.PerformLayout();

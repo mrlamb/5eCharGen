@@ -1,4 +1,5 @@
 ﻿using _5eCharGen.Model;
+using _5eCharGen.View.Localization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,14 +14,25 @@ namespace _5eCharGen.Editor.View
 {
     public partial class ProficiencyEditor : Form
     {
+        Lang lang = Lang.GetInstance();
         public ProficiencyEditor()
         {
-            InitializeComponent();
+            InitializeComponent();            
             UpdateIndex();
+            UpdateStrings();
             comboBoxFieldProficiencySelect.ComboBoxTextChanged +=
                 new EventHandler(comboBoxFieldProficiencySelect_SelectedIndexChanged);
         }
 
+        private void UpdateStrings()
+        {
+            comboBoxFieldProficiencySelect.LabelText = lang.Get("SELECT_PROFICIENCY");
+            textFieldProfName.LabelText = lang.Get("LABEL_NAME");
+            comboBoxProfType.LabelText = lang.Get("LABEL_TYPE");
+            comboBoxFieldDerivedStat.LabelText = lang.Get("LABEL_DERIVED_STAT");
+
+
+        }
         private void comboBoxFieldProficiencySelect_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxFieldProficiencySelect.ComboBox.SelectedItem != null)
@@ -90,8 +102,8 @@ namespace _5eCharGen.Editor.View
             if (comboBoxFieldProficiencySelect.ComboBox.SelectedItem != null)
             {
                 string pf = comboBoxFieldProficiencySelect.ComboBox.SelectedItem.ToString();
-                DialogResult dr = MessageBox.Show(string.Format("Are you sure you want to remove the proficiency: {0}"
-                    , pf), "Confirm", MessageBoxButtons.YesNo);
+                DialogResult dr = MessageBox.Show(string.Format(lang.Get("CONFIRM_REMOVAL"), lang.Get("PROFICIENCY")
+                    , pf), lang.Get("CONFIRM"), MessageBoxButtons.YesNo);
                 switch (dr)
                 {
                     case DialogResult.Yes:

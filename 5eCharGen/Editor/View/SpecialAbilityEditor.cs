@@ -14,16 +14,47 @@ namespace _5eCharGen.Editor.View
 {
     public partial class SpecialAbilityEditor : Form
     {
+        private Lang lang = Lang.GetInstance();
+        private ToolTip tt = new ToolTip();
+
         public SpecialAbilityEditor()
         {
             InitializeComponent();
             UpdateIndex();
-            Lang lang = Lang.GetInstance();
-            ToolTip tt = new ToolTip();
+            UpdateStrings();
+        }
+
+        private void UpdateStrings()
+        {
+            // Set tooltips
             tt.SetToolTip(buttonAddProf, lang.Get("BTN_ADD_PROF"));
             tt.SetToolTip(buttonAddProfValue, lang.Get("BTN_ADD_PROF_VALUE"));
             tt.SetToolTip(buttonAddNewProf, lang.Get("BTN_ADD_NEW_PROF"));
             tt.SetToolTip(buttonRefresh, lang.Get("BTN_REFRESH"));
+
+            comboBoxFieldSAName.LabelText = lang.Get("SELECT_ABILITY");
+            Summary.Text = lang.Get("SHOW_SUMMARY");
+            tabPageBasicStats.Text = lang.Get("LABEL_BASICS");
+            tabPageAttributes.Text = lang.Get("LABEL_ATTRIBUTES");
+            tabPageProf.Text = lang.Get("LABEL_PROFICIENCIES");
+            tabPageSpells.Text = lang.Get("LABEL_SPELLS");
+            tabPageMisc.Text = lang.Get("LABEL_MISC");
+            labelDescription.Text = lang.Get("LABEL_DESCRIPTION");
+            labelInstACSpeed.Text = lang.Get("INSTRUCTIONS_INPUT_VALUES");
+            textFieldControlSpeed.LabelText = lang.Get("AC_BONUS");
+            textFieldControlAC.LabelText = lang.Get("SPEED_BONUS");
+            textFieldControlName.LabelText = lang.Get("LABEL_NAME");
+            comboBoxFieldControlProfName.LabelText = lang.Get("SELECT_PROFICIENCY");
+            comboBoxFieldSpellName.LabelText = lang.Get("SELECT_SPELL");
+            labelAddProf.Text = lang.Get("SAE_ADD_PROF");
+            labelAdd.Text = lang.Get("SAE_LABEL_ADD");
+            labelAddProfValue.Text = lang.Get("SAE_ADD_PROF_HELP");
+            labelAddProfValue.Text = lang.Get("SAE_LABEL_ADD_TO_PROF");
+
+
+
+
+
         }
 
         private void UpdateIndex()
@@ -70,13 +101,16 @@ namespace _5eCharGen.Editor.View
             //Attribute tab
             foreach (Control ctrl in tabPageAttributes.Controls)
             {
-                try
+                if (ctrl is TextFieldControl)
                 {
-                    (ctrl as TextFieldControl).Text = sa.AttributeBonus[ctrl.Name.Substring(ctrl.Name.Length - 3)].ToString();
-                }
-                catch (Exception)
-                {
-                    (ctrl as TextFieldControl).Text = string.Empty;
+                    if (sa.AttributeBonus.ContainsKey(ctrl.Name.Substring(ctrl.Name.Length - 3)))
+                    {
+                        ctrl.Text = sa.AttributeBonus[ctrl.Name.Substring(ctrl.Name.Length - 3)].ToString();
+                    }
+                    else
+                    {
+                        (ctrl as TextFieldControl).Text = string.Empty;
+                    }
                 }
             }
 
@@ -111,7 +145,7 @@ namespace _5eCharGen.Editor.View
                 {
                     if (name.Equals(comboBoxFieldControlProfName.ComboBox.SelectedItem.ToString()))
                     {
-                        MessageBox.Show("Duplicates not allowed");
+                        MessageBox.Show(lang.Get("NO_DUPLICATES"));
                         return;
                     }
                 }
@@ -120,7 +154,7 @@ namespace _5eCharGen.Editor.View
             }
             else
             {
-                MessageBox.Show("Select a proficiency to add.");
+                MessageBox.Show(lang.Get("SELECT_PROFICIENCY"));
             }
         }
 
@@ -138,7 +172,15 @@ namespace _5eCharGen.Editor.View
         {
             int value;
             NotationType type;
-            if (textBoxProfValue.Text.Length > 0 && comboBoxFieldControlProfName.ComboBox.SelectedIndex != -1)
+            if (textBoxProfValue.Text.Length == 0)
+            {
+                MessageBox.Show(lang.Get("MISSING_STAT_NUMERAL"));
+            }
+            else if (comboBoxFieldControlProfName.ComboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show(lang.Get("SELECT_PROFICIENCY"));
+            }
+            else
             {
                 if (Int32.TryParse(textBoxProfValue.Text, out value))
                 {
@@ -154,19 +196,10 @@ namespace _5eCharGen.Editor.View
                 }
                 else
                 {
-                    MessageBox.Show("Sorry, no matching Stat or numeral given. Are you sure you entered it right?", "Error in input");
+                    MessageBox.Show(lang.Get("MISSING_STAT_NUMERAL"), lang.Get("INPUT_ERROR"));
                 }
             }
-            else if(textBoxProfValue.Text.Length == 0)
-            {
-                MessageBox.Show("Enter a value in the box to add to the selected proficiency.");
-            }
-            else
-            {
-                MessageBox.Show("Select a proficiency to add.");
-            }
         }
-
 
         private void buttonRemoveProfValue_Click(object sender, EventArgs e)
         {
@@ -211,7 +244,10 @@ namespace _5eCharGen.Editor.View
             // Attributes tab
             foreach (Control ctrl in tabPageAttributes.Controls)
             {
-                (ctrl as TextFieldControl).Text = string.Empty;
+                if (ctrl is TextFieldControl)
+                {
+                    (ctrl as TextFieldControl).Text = string.Empty;
+                }
             }
 
             // Proficiencies Tab
@@ -232,8 +268,8 @@ namespace _5eCharGen.Editor.View
             if (comboBoxFieldSAName.ComboBox.SelectedItem != null)
             {
                 string sa = comboBoxFieldSAName.ComboBox.SelectedItem.ToString();
-                DialogResult dr = MessageBox.Show(string.Format("Are you sure you want to remove the special ability: {0}"
-                    , sa), "Confirm", MessageBoxButtons.YesNo);
+                DialogResult dr = MessageBox.Show(string.Format(lang.Get("CONFIRM_REMOVAL"),
+                    lang.Get("SPECIAL_ABILITY"), sa), lang.Get("CONFIRM"), MessageBoxButtons.YesNo);
                 switch (dr)
                 {
                     case DialogResult.Yes:
@@ -251,7 +287,7 @@ namespace _5eCharGen.Editor.View
         {
             if (textFieldControlName.Text.Length == 0)
             {
-                MessageBox.Show("Enter a name for this ability.");
+                MessageBox.Show(string.Format(lang.Get("INSTRUCTIONS_NAME"), lang.Get("SPECIAL_ABILITY")));
                 return;
             }
 
@@ -259,19 +295,23 @@ namespace _5eCharGen.Editor.View
             foreach (Control ctrl in tabPageAttributes.Controls)
             {
                 int value;
-                if (Int32.TryParse((ctrl as TextFieldControl).Text, out value))
+                if (ctrl is TextFieldControl && ctrl.Tag != null)
                 {
-                    dict.Add(ctrl.Name.Substring(ctrl.Name.Length - 3), value);
-                }
-                else
-                {
-                    if (ctrl.Text.Length != 0)
+                    if (Int32.TryParse((ctrl as TextFieldControl).Text, out value))
                     {
-                        MessageBox.Show(String.Format("Invalid entry for an attribute. {0} is not supported.", ctrl.Text));
-                        return;
+                        dict.Add(ctrl.Name.Substring(ctrl.Name.Length - 3), value);
+                    }
+                    else
+                    {
+                        if (ctrl.Text.Length != 0)
+                        {
+                            MessageBox.Show(String.Format(lang.Get("INVALID_ENTRY_UNSUPPORTED"), ctrl.Text));
+                            return;
+                        }
                     }
                 }
             }
+
 
             SpecialAbility sa = new SpecialAbility();
             //Basics tab

@@ -73,6 +73,8 @@ namespace _5eCharGen.View
         private void spellEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SpellEditor se = SpellEditor.Instance;
+            se.Location = Location;
+            se.Top += 60;
             se.Show();
           
         }
@@ -80,12 +82,16 @@ namespace _5eCharGen.View
         private void proficiencyEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProficiencyEditor pe = new ProficiencyEditor();
+            pe.Location = Location;
+            pe.Top += 60;
             pe.Show();
         }
 
         private void specialAbilityEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SpecialAbilityEditor sae = new SpecialAbilityEditor();
+            sae.Location = Location;
+            sae.Top += 60;
             sae.Show();
         }
     }

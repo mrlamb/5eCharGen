@@ -69,7 +69,7 @@
             // 
             // comboBoxProfType
             // 
-            this.comboBoxProfType.LabelText = "Type";
+            this.comboBoxProfType.LabelText = "";
             this.comboBoxProfType.Location = new System.Drawing.Point(142, 57);
             this.comboBoxProfType.Name = "comboBoxProfType";
             this.comboBoxProfType.Size = new System.Drawing.Size(100, 39);
@@ -77,7 +77,7 @@
             // 
             // textFieldProfName
             // 
-            this.textFieldProfName.LabelText = "Name";
+            this.textFieldProfName.LabelText = "";
             this.textFieldProfName.Location = new System.Drawing.Point(13, 57);
             this.textFieldProfName.Name = "textFieldProfName";
             this.textFieldProfName.Size = new System.Drawing.Size(123, 39);
@@ -85,7 +85,7 @@
             // 
             // comboBoxFieldProficiencySelect
             // 
-            this.comboBoxFieldProficiencySelect.LabelText = "Select a Proficiency";
+            this.comboBoxFieldProficiencySelect.LabelText = "";
             this.comboBoxFieldProficiencySelect.Location = new System.Drawing.Point(12, 12);
             this.comboBoxFieldProficiencySelect.Name = "comboBoxFieldProficiencySelect";
             this.comboBoxFieldProficiencySelect.Size = new System.Drawing.Size(230, 39);
@@ -115,6 +115,7 @@
             this.MinimizeBox = false;
             this.Name = "ProficiencyEditor";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Proficiencies";
             this.ResumeLayout(false);
 
