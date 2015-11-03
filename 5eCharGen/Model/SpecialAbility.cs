@@ -22,6 +22,10 @@ namespace _5eCharGen
             ProficienciesAltered = new Dictionary<string, string>();
         }
 
+        public override string ToString()
+        {
+            return Name;
+        }
 
     }
 

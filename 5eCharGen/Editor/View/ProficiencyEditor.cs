@@ -14,22 +14,20 @@ namespace _5eCharGen.Editor.View
 {
     public partial class ProficiencyEditor : Form
     {
-        Lang lang = Lang.GetInstance();
         public ProficiencyEditor()
         {
             InitializeComponent();            
             UpdateIndex();
             UpdateStrings();
-            comboBoxFieldProficiencySelect.ComboBoxTextChanged +=
-                new EventHandler(comboBoxFieldProficiencySelect_SelectedIndexChanged);
+           
         }
 
         private void UpdateStrings()
         {
-            comboBoxFieldProficiencySelect.LabelText = lang.Get("SELECT_PROFICIENCY");
-            textFieldProfName.LabelText = lang.Get("LABEL_NAME");
-            comboBoxProfType.LabelText = lang.Get("LABEL_TYPE");
-            comboBoxFieldDerivedStat.LabelText = lang.Get("LABEL_DERIVED_STAT");
+            comboBoxFieldProficiencySelect.LabelText = Language.GetLocalizedString("SELECT_PROFICIENCY");
+            textFieldProfName.LabelText = Language.GetLocalizedString("LABEL_NAME");
+            comboBoxProfType.LabelText = Language.GetLocalizedString("LABEL_TYPE");
+            comboBoxFieldDerivedStat.LabelText = Language.GetLocalizedString("LABEL_DERIVED_STAT");
 
 
         }
@@ -61,10 +59,8 @@ namespace _5eCharGen.Editor.View
             }
 
             comboBoxFieldProficiencySelect.ComboBox.Items.Clear();
-            foreach (Proficiency pf in Data.GetAllProficiencies().OrderBy(x => x.Name))
-            {
-                comboBoxFieldProficiencySelect.ComboBox.Items.Add(pf.Name);
-            }
+            comboBoxFieldProficiencySelect.ComboBox.Items.AddRange
+                (Data.GetAllProficiencies().OrderBy(x => x.Name).ToArray());
 
             comboBoxFieldDerivedStat.ComboBox.Items.Clear();
             for (NotationType stat = NotationType.STR; stat <= NotationType.CHA; stat++)
@@ -80,19 +76,10 @@ namespace _5eCharGen.Editor.View
             pf.Type = (ProfType)comboBoxProfType.ComboBox.SelectedIndex;
             pf.DerivedStat = comboBoxFieldDerivedStat.ComboBox.SelectedIndex != -1 ?
                 (NotationType)comboBoxFieldDerivedStat.ComboBox.SelectedIndex : NotationType.PROF;
-            try
-            {
-                Data.RemoveProficiency(pf.Name);
-            }
-            catch (KeyNotFoundException)
-            {
-                // If KeyNotFound we'll just add our new spell
-            }
-            finally
-            {
-                Data.AddProficiency(pf);
 
-            }
+            Data.RemoveProficiency(pf.Name);
+            Data.AddProficiency(pf);
+
             ClearForm();
             UpdateIndex();
         }
@@ -102,8 +89,8 @@ namespace _5eCharGen.Editor.View
             if (comboBoxFieldProficiencySelect.ComboBox.SelectedItem != null)
             {
                 string pf = comboBoxFieldProficiencySelect.ComboBox.SelectedItem.ToString();
-                DialogResult dr = MessageBox.Show(string.Format(lang.Get("CONFIRM_REMOVAL"), lang.Get("PROFICIENCY")
-                    , pf), lang.Get("CONFIRM"), MessageBoxButtons.YesNo);
+                DialogResult dr = MessageBox.Show(string.Format(Language.GetLocalizedString("CONFIRM_REMOVAL"), Language.GetLocalizedString("PROFICIENCY")
+                    , pf), Language.GetLocalizedString("CONFIRM"), MessageBoxButtons.YesNo);
                 switch (dr)
                 {
                     case DialogResult.Yes:

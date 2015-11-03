@@ -23,7 +23,7 @@ namespace _5eCharGen.View
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            Lang lang = Lang.GetInstance();
+            
         }
        
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

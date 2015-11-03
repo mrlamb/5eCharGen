@@ -95,6 +95,7 @@
     <Compile Include="Interfaces\ICharacter.cs" />
     <Compile Include="Model\Notation.cs" />
     <Compile Include="Model\Data2.cs" />
+    <Compile Include="Model\ProgramOptions.cs" />
     <Compile Include="View\AttributeBlock.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -182,13 +183,9 @@
     <EmbeddedResource Include="View\TextFieldControl.resx">
       <DependentUpon>TextFieldControl.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Data\Feat.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Data\Feat.json" />
     <None Include="Data\Spell.json" />
-    <None Include="Data\Race.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Data\Race.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

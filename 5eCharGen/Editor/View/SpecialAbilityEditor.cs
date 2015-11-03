@@ -14,7 +14,6 @@ namespace _5eCharGen.Editor.View
 {
     public partial class SpecialAbilityEditor : Form
     {
-        private Lang lang = Lang.GetInstance();
         private ToolTip tt = new ToolTip();
 
         public SpecialAbilityEditor()
@@ -27,29 +26,29 @@ namespace _5eCharGen.Editor.View
         private void UpdateStrings()
         {
             // Set tooltips
-            tt.SetToolTip(buttonAddProf, lang.Get("BTN_ADD_PROF"));
-            tt.SetToolTip(buttonAddProfValue, lang.Get("BTN_ADD_PROF_VALUE"));
-            tt.SetToolTip(buttonAddNewProf, lang.Get("BTN_ADD_NEW_PROF"));
-            tt.SetToolTip(buttonRefresh, lang.Get("BTN_REFRESH"));
+            tt.SetToolTip(buttonAddProf, Language.GetLocalizedString("BTN_ADD_PROF"));
+            tt.SetToolTip(buttonAddProfValue, Language.GetLocalizedString("BTN_ADD_PROF_VALUE"));
+            tt.SetToolTip(buttonAddNewProf, Language.GetLocalizedString("BTN_ADD_NEW_PROF"));
+            tt.SetToolTip(buttonRefresh, Language.GetLocalizedString("BTN_REFRESH"));
 
-            comboBoxFieldSAName.LabelText = lang.Get("SELECT_ABILITY");
-            Summary.Text = lang.Get("SHOW_SUMMARY");
-            tabPageBasicStats.Text = lang.Get("LABEL_BASICS");
-            tabPageAttributes.Text = lang.Get("LABEL_ATTRIBUTES");
-            tabPageProf.Text = lang.Get("LABEL_PROFICIENCIES");
-            tabPageSpells.Text = lang.Get("LABEL_SPELLS");
-            tabPageMisc.Text = lang.Get("LABEL_MISC");
-            labelDescription.Text = lang.Get("LABEL_DESCRIPTION");
-            labelInstACSpeed.Text = lang.Get("INSTRUCTIONS_INPUT_VALUES");
-            textFieldControlSpeed.LabelText = lang.Get("AC_BONUS");
-            textFieldControlAC.LabelText = lang.Get("SPEED_BONUS");
-            textFieldControlName.LabelText = lang.Get("LABEL_NAME");
-            comboBoxFieldControlProfName.LabelText = lang.Get("SELECT_PROFICIENCY");
-            comboBoxFieldSpellName.LabelText = lang.Get("SELECT_SPELL");
-            labelAddProf.Text = lang.Get("SAE_ADD_PROF");
-            labelAdd.Text = lang.Get("SAE_LABEL_ADD");
-            labelAddProfValue.Text = lang.Get("SAE_ADD_PROF_HELP");
-            labelAddProfValue.Text = lang.Get("SAE_LABEL_ADD_TO_PROF");
+            comboBoxFieldSAName.LabelText = Language.GetLocalizedString("SELECT_ABILITY");
+            Summary.Text = Language.GetLocalizedString("SHOW_SUMMARY");
+            tabPageBasicStats.Text = Language.GetLocalizedString("LABEL_BASICS");
+            tabPageAttributes.Text = Language.GetLocalizedString("LABEL_ATTRIBUTES");
+            tabPageProf.Text = Language.GetLocalizedString("LABEL_PROFICIENCIES");
+            tabPageSpells.Text = Language.GetLocalizedString("LABEL_SPELLS");
+            tabPageMisc.Text = Language.GetLocalizedString("LABEL_MISC");
+            labelDescription.Text = Language.GetLocalizedString("LABEL_DESCRIPTION");
+            labelInstACSpeed.Text = Language.GetLocalizedString("INSTRUCTIONS_INPUT_VALUES");
+            textFieldControlSpeed.LabelText = Language.GetLocalizedString("AC_BONUS");
+            textFieldControlAC.LabelText = Language.GetLocalizedString("SPEED_BONUS");
+            textFieldControlName.LabelText = Language.GetLocalizedString("LABEL_NAME");
+            comboBoxFieldControlProfName.LabelText = Language.GetLocalizedString("SELECT_PROFICIENCY");
+            comboBoxFieldSpellName.LabelText = Language.GetLocalizedString("SELECT_SPELL");
+            labelAddProf.Text = Language.GetLocalizedString("SAE_ADD_PROF");
+            labelAdd.Text = Language.GetLocalizedString("SAE_LABEL_ADD");
+            labelAddProfValue.Text = Language.GetLocalizedString("SAE_ADD_PROF_HELP");
+            labelAddProfValue.Text = Language.GetLocalizedString("SAE_LABEL_ADD_TO_PROF");
 
 
 
@@ -60,26 +59,14 @@ namespace _5eCharGen.Editor.View
         private void UpdateIndex()
         {
             comboBoxFieldSAName.ComboBox.Items.Clear();
-
-            foreach (SpecialAbility sa in Data.GetAllSAs().OrderBy(x => x.Name))
-            {
-                comboBoxFieldSAName.ComboBox.Items.Add(sa.Name);
-            }
-
-            comboBoxFieldSAName.ComboBoxTextChanged +=
-                new EventHandler(comboBoxFieldSAName_SelectedIndexChanged);
+            comboBoxFieldSAName.ComboBox.Items.AddRange(Data.GetAllSAs().OrderBy(x => x.Name).ToArray());
 
             comboBoxFieldControlProfName.ComboBox.Items.Clear();
-            foreach (Proficiency pf in Data.GetAllProficiencies().OrderBy(x => x.Name))
-            {
-                comboBoxFieldControlProfName.ComboBox.Items.Add(pf.Name);
-            }
-
+            comboBoxFieldControlProfName.ComboBox.Items.AddRange
+                (Data.GetAllProficiencies().OrderBy(x => x.Name).ToArray());
+            
             comboBoxFieldSpellName.ComboBox.Items.Clear();
-            foreach (Spell spell in Data.GetAllSpells().OrderBy(x => x.Name))
-            {
-                comboBoxFieldSpellName.ComboBox.Items.Add(spell.Name);
-            }
+            comboBoxFieldSpellName.ComboBox.Items.AddRange(Data.GetAllSpells().OrderBy(x => x.Name).ToArray());
         }
 
         private void comboBoxFieldSAName_SelectedIndexChanged(object sender, EventArgs e)
@@ -145,7 +132,7 @@ namespace _5eCharGen.Editor.View
                 {
                     if (name.Equals(comboBoxFieldControlProfName.ComboBox.SelectedItem.ToString()))
                     {
-                        MessageBox.Show(lang.Get("NO_DUPLICATES"));
+                        MessageBox.Show(Language.GetLocalizedString("NO_DUPLICATES"));
                         return;
                     }
                 }
@@ -154,7 +141,7 @@ namespace _5eCharGen.Editor.View
             }
             else
             {
-                MessageBox.Show(lang.Get("SELECT_PROFICIENCY"));
+                MessageBox.Show(Language.GetLocalizedString("SELECT_PROFICIENCY"));
             }
         }
 
@@ -174,11 +161,11 @@ namespace _5eCharGen.Editor.View
             NotationType type;
             if (textBoxProfValue.Text.Length == 0)
             {
-                MessageBox.Show(lang.Get("MISSING_STAT_NUMERAL"));
+                MessageBox.Show(Language.GetLocalizedString("MISSING_STAT_NUMERAL"));
             }
             else if (comboBoxFieldControlProfName.ComboBox.SelectedIndex == -1)
             {
-                MessageBox.Show(lang.Get("SELECT_PROFICIENCY"));
+                MessageBox.Show(Language.GetLocalizedString("SELECT_PROFICIENCY"));
             }
             else
             {
@@ -196,7 +183,7 @@ namespace _5eCharGen.Editor.View
                 }
                 else
                 {
-                    MessageBox.Show(lang.Get("MISSING_STAT_NUMERAL"), lang.Get("INPUT_ERROR"));
+                    MessageBox.Show(Language.GetLocalizedString("MISSING_STAT_NUMERAL"), Language.GetLocalizedString("INPUT_ERROR"));
                 }
             }
         }
@@ -268,8 +255,8 @@ namespace _5eCharGen.Editor.View
             if (comboBoxFieldSAName.ComboBox.SelectedItem != null)
             {
                 string sa = comboBoxFieldSAName.ComboBox.SelectedItem.ToString();
-                DialogResult dr = MessageBox.Show(string.Format(lang.Get("CONFIRM_REMOVAL"),
-                    lang.Get("SPECIAL_ABILITY"), sa), lang.Get("CONFIRM"), MessageBoxButtons.YesNo);
+                DialogResult dr = MessageBox.Show(string.Format(Language.GetLocalizedString("CONFIRM_REMOVAL"),
+                    Language.GetLocalizedString("SPECIAL_ABILITY"), sa), Language.GetLocalizedString("CONFIRM"), MessageBoxButtons.YesNo);
                 switch (dr)
                 {
                     case DialogResult.Yes:
@@ -287,7 +274,7 @@ namespace _5eCharGen.Editor.View
         {
             if (textFieldControlName.Text.Length == 0)
             {
-                MessageBox.Show(string.Format(lang.Get("INSTRUCTIONS_NAME"), lang.Get("SPECIAL_ABILITY")));
+                MessageBox.Show(string.Format(Language.GetLocalizedString("INSTRUCTIONS_NAME"), Language.GetLocalizedString("SPECIAL_ABILITY")));
                 return;
             }
 
@@ -305,7 +292,7 @@ namespace _5eCharGen.Editor.View
                     {
                         if (ctrl.Text.Length != 0)
                         {
-                            MessageBox.Show(String.Format(lang.Get("INVALID_ENTRY_UNSUPPORTED"), ctrl.Text));
+                            MessageBox.Show(String.Format(Language.GetLocalizedString("INVALID_ENTRY_UNSUPPORTED"), ctrl.Text));
                             return;
                         }
                     }

@@ -10,7 +10,13 @@ namespace _5eCharGen
         public bool Expertise { get; set; }
         public NotationType DerivedStat { get; set; }
 
+        public override string ToString()
+        {
+            return Name;
+        }
     }
+
+   
 }
 
 namespace _5eCharGen.Model

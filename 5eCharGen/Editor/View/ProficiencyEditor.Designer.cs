@@ -90,6 +90,7 @@
             this.comboBoxFieldProficiencySelect.Name = "comboBoxFieldProficiencySelect";
             this.comboBoxFieldProficiencySelect.Size = new System.Drawing.Size(230, 39);
             this.comboBoxFieldProficiencySelect.TabIndex = 0;
+            this.comboBoxFieldProficiencySelect.ComboBoxTextChanged += new System.EventHandler(this.comboBoxFieldProficiencySelect_SelectedIndexChanged);
             // 
             // comboBoxFieldDerivedStat
             // 

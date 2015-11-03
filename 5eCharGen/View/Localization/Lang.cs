@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using _5eCharGen.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,51 +10,47 @@ using System.Windows.Forms;
 
 namespace _5eCharGen.View.Localization
 {
-    class Lang
+    public static class Language
     {
-        private Dictionary<string, string> Localization { get; set; }
-        private static Lang instance;
-
-        private Lang(Languages lang)
+        public static Dictionary<string, string> Localization { get; set; }
+        
+        static Language()
         {
+            string lang = ProgramOptions.GetOption("LANGUAGE");
+
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
-            string filename = Directory.GetCurrentDirectory() + "\\Languages\\" + lang + ".json";
 
-            if (File.Exists(filename))
+            if (lang != null)
             {
-                dictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(filename));
-            }
-            else
-            {
-                MessageBox.Show("Localization Data not found");
-            }
+                
+                string filename = Directory.GetCurrentDirectory() + "\\Languages\\" + lang + ".json";
 
+                if (File.Exists(filename))
+                {
+                    dictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(filename));
+                }
+                else
+                {
+                    MessageBox.Show("Localization Data not found");
+
+                }
+            }
             Localization = dictionary;
+
         }
 
-        internal string Get(string v)
+        public static string GetLocalizedString(string v)
         {
-            try
-            {
+           if (Localization.ContainsKey(v))
+           {
                 return Localization[v];
-            }
-            catch (KeyNotFoundException)
-            {
-                return "Missing localization";
-            }
+           }
+           else
+           {
+               return "Missing localization";
+           }
+
+
         }
-
-        public static Lang GetInstance()
-        {
-            if (instance == null)
-                instance = new Lang(Languages.English);
-
-            return instance;
-        }
-    }
-
-    enum Languages
-    {
-        English, Spanish
     }
 }

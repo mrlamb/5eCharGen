@@ -26,5 +26,10 @@ namespace _5eCharGen
 
             MaterialDescription = string.Empty;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

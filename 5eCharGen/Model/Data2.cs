@@ -18,7 +18,15 @@ namespace _5eCharGen
 
         internal static Proficiency GetProficiency(string name)
         {
-            return proficiencies[name];
+            if (proficiencies.ContainsKey(name))
+            {
+                return proficiencies[name];
+            }
+            else
+            {
+                return null;
+            }
+            
         }
 
         internal static void AddProficiency(Proficiency pf)

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
+using _5eCharGen.View.Localization;
 
 namespace _5eCharGen.Editor.View
 {
@@ -100,8 +101,6 @@ namespace _5eCharGen.Editor.View
 
         private void CustomInitialize()
         {
-            comboBoxFieldSpellSelect.ComboBoxTextChanged += new EventHandler(comboBoxFieldSpellSelect_SelectedIndexChanged);
-
             for (int i = 0; i < 10; i++)
             {
                 comboBoxFieldSpellLevel.ComboBox.Items.Add(i.ToString());
@@ -127,18 +126,14 @@ namespace _5eCharGen.Editor.View
         {
             if (comboBoxFieldSpellSelect.ComboBox.SelectedItem != null)
             {
-                string spellName = comboBoxFieldSpellSelect.ComboBox.SelectedItem.ToString();
-                LoadSpell(spellName);
+                LoadSpell(comboBoxFieldSpellSelect.ComboBox.SelectedItem.ToString());
             }
         }
 
         private void UpdateIndex()
         {
             comboBoxFieldSpellSelect.ComboBox.Items.Clear();
-            foreach (Spell spell in Data.GetAllSpells().OrderBy(x => x.Name))
-            {
-                comboBoxFieldSpellSelect.ComboBox.Items.Add(spell.Name);
-            }
+            comboBoxFieldSpellSelect.ComboBox.Items.AddRange(Data.GetAllSpells().OrderBy(x => x.Name).ToArray());
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -201,7 +196,12 @@ namespace _5eCharGen.Editor.View
         private void buttonSave_Click(object sender, EventArgs e)
         {
             Spell newSpell = new Spell();
-            newSpell.Name = SpellName.Length > 0 ? textFieldSpellName.Text : "Unnamed Spell";
+            if (SpellName.Length == 0)
+            {
+                MessageBox.Show(Language.GetLocalizedString("INVALID_NAME"));
+                return;
+            }
+            newSpell.Name = SpellName;
             newSpell.Level = Level > -1 ? Level : 0;
             newSpell.School = School > -1 ? School : 0;
             newSpell.Components["Verbal"] = Verbal;
@@ -215,19 +215,9 @@ namespace _5eCharGen.Editor.View
             newSpell.Description = Description;
             newSpell.Ritual = Ritual;
 
-            try
-            {
-                Data.RemoveSpell(newSpell.Name);
-            }
-            catch (KeyNotFoundException)
-            {
-                // If KeyNotFound we'll just add our new spell
-            }
-            finally
-            {
-                Data.AddSpell(newSpell);
-                
-            }
+            Data.RemoveSpell(newSpell.Name);
+            Data.AddSpell(newSpell);
+
             UpdateIndex();
         }
 
@@ -236,7 +226,9 @@ namespace _5eCharGen.Editor.View
             string spellName = comboBoxFieldSpellSelect.ComboBox.SelectedItem.ToString();
             if (spellName.Length > 0)
             {
-                DialogResult dr = MessageBox.Show(string.Format("Are you sure you want to remove the spell: {0}", spellName), "Confirm", MessageBoxButtons.YesNo);
+                DialogResult dr = MessageBox.Show(string.Format(Language.GetLocalizedString("CONFIRM_REMOVAL"),
+                    Language.GetLocalizedString("SPELL"), spellName),
+                    Language.GetLocalizedString("CONFIRM"), MessageBoxButtons.YesNo);
                 switch (dr)
                 {
                     case DialogResult.Yes:

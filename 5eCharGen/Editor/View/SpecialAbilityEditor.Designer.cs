@@ -532,6 +532,7 @@
             this.comboBoxFieldSAName.Name = "comboBoxFieldSAName";
             this.comboBoxFieldSAName.Size = new System.Drawing.Size(219, 39);
             this.comboBoxFieldSAName.TabIndex = 0;
+            this.comboBoxFieldSAName.ComboBoxTextChanged += new System.EventHandler(this.comboBoxFieldSAName_SelectedIndexChanged);
             // 
             // SpecialAbilityEditor
             // 

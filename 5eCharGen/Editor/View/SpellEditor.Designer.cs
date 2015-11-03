@@ -133,6 +133,7 @@
             this.comboBoxFieldSpellSelect.Name = "comboBoxFieldSpellSelect";
             this.comboBoxFieldSpellSelect.Size = new System.Drawing.Size(220, 39);
             this.comboBoxFieldSpellSelect.TabIndex = 11;
+            this.comboBoxFieldSpellSelect.ComboBoxTextChanged += new System.EventHandler(this.comboBoxFieldSpellSelect_SelectedIndexChanged);
             // 
             // textFieldRange
             // 
