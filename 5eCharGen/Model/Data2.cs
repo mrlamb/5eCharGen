@@ -26,11 +26,15 @@ namespace _5eCharGen
             {
                 return null;
             }
-            
+
         }
 
         internal static void AddProficiency(Proficiency pf)
         {
+            if (proficiencies.ContainsKey(pf.Name))
+            {
+                proficiencies.Remove(pf.Name);
+            }
             proficiencies.Add(pf.Name, pf);
             Save<Proficiency>(proficiencies);
         }
@@ -55,6 +59,26 @@ namespace _5eCharGen
             return races[name];
         }
 
+        internal static void AddRace(Race newRace)
+        {
+            if (races.ContainsKey(newRace.Name))
+            {
+                races.Remove(newRace.Name);
+            }
+            races.Add(newRace.Name, newRace);
+            Save<Race>(races);
+
+        }
+
+        internal static void RemoveRace(string name)
+        {
+            if (races.ContainsKey(name))
+            {
+                races.Remove(name);
+                Save<Race>(races);
+            }
+        }
+
         //Special abilities
         internal static IEnumerable<SpecialAbility> GetAllSAs()
         {
@@ -68,6 +92,10 @@ namespace _5eCharGen
 
         internal static void AddSA(SpecialAbility sa)
         {
+            if (specialAbilities.ContainsKey(sa.Name))
+            {
+                specialAbilities.Remove(sa.Name);
+            }
             specialAbilities.Add(sa.Name, sa);
             Save<SpecialAbility>(specialAbilities);
         }
@@ -94,6 +122,10 @@ namespace _5eCharGen
 
         internal static void AddSpell(Spell spell)
         {
+            if (spells.ContainsKey(spell.Name))
+            {
+                spells.Remove(spell.Name);
+            }
             spells.Add(spell.Name, spell);
             Save<Spell>(spells);
         }
@@ -106,5 +138,7 @@ namespace _5eCharGen
                 Save<Spell>(spells);
             }
         }
+
+
     }
 }

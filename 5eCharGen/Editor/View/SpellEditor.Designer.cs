@@ -32,7 +32,7 @@
             this.textBoxCastTimeNumber = new System.Windows.Forms.TextBox();
             this.comboBoxCastTime = new System.Windows.Forms.ComboBox();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelDesc = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.buttonAddNew = new System.Windows.Forms.Button();
@@ -52,9 +52,8 @@
             this.labelCastTime.AutoSize = true;
             this.labelCastTime.Location = new System.Drawing.Point(234, 60);
             this.labelCastTime.Name = "labelCastTime";
-            this.labelCastTime.Size = new System.Drawing.Size(54, 13);
+            this.labelCastTime.Size = new System.Drawing.Size(0, 13);
             this.labelCastTime.TabIndex = 3;
-            this.labelCastTime.Text = "Cast Time";
             // 
             // textBoxCastTimeNumber
             // 
@@ -79,14 +78,13 @@
             this.textBoxDescription.Size = new System.Drawing.Size(485, 103);
             this.textBoxDescription.TabIndex = 9;
             // 
-            // label1
+            // labelDesc
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 207);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Description";
+            this.labelDesc.AutoSize = true;
+            this.labelDesc.Location = new System.Drawing.Point(13, 207);
+            this.labelDesc.Name = "labelDesc";
+            this.labelDesc.Size = new System.Drawing.Size(0, 13);
+            this.labelDesc.TabIndex = 10;
             // 
             // buttonSave
             // 
@@ -128,7 +126,7 @@
             // 
             // comboBoxFieldSpellSelect
             // 
-            this.comboBoxFieldSpellSelect.LabelText = "Spell";
+            this.comboBoxFieldSpellSelect.LabelText = "";
             this.comboBoxFieldSpellSelect.Location = new System.Drawing.Point(513, 10);
             this.comboBoxFieldSpellSelect.Name = "comboBoxFieldSpellSelect";
             this.comboBoxFieldSpellSelect.Size = new System.Drawing.Size(220, 39);
@@ -137,7 +135,7 @@
             // 
             // textFieldRange
             // 
-            this.textFieldRange.LabelText = "Range";
+            this.textFieldRange.LabelText = "";
             this.textFieldRange.Location = new System.Drawing.Point(234, 103);
             this.textFieldRange.Name = "textFieldRange";
             this.textFieldRange.Size = new System.Drawing.Size(138, 39);
@@ -145,7 +143,7 @@
             // 
             // textFieldDuration
             // 
-            this.textFieldDuration.LabelText = "Duration";
+            this.textFieldDuration.LabelText = "";
             this.textFieldDuration.Location = new System.Drawing.Point(234, 148);
             this.textFieldDuration.Name = "textFieldDuration";
             this.textFieldDuration.Size = new System.Drawing.Size(208, 39);
@@ -163,7 +161,7 @@
             // 
             // comboBoxSpellSchool
             // 
-            this.comboBoxSpellSchool.LabelText = "School";
+            this.comboBoxSpellSchool.LabelText = "";
             this.comboBoxSpellSchool.Location = new System.Drawing.Point(313, 11);
             this.comboBoxSpellSchool.Name = "comboBoxSpellSchool";
             this.comboBoxSpellSchool.Size = new System.Drawing.Size(185, 39);
@@ -171,7 +169,7 @@
             // 
             // comboBoxFieldSpellLevel
             // 
-            this.comboBoxFieldSpellLevel.LabelText = "Level";
+            this.comboBoxFieldSpellLevel.LabelText = "";
             this.comboBoxFieldSpellLevel.Location = new System.Drawing.Point(237, 11);
             this.comboBoxFieldSpellLevel.Name = "comboBoxFieldSpellLevel";
             this.comboBoxFieldSpellLevel.Size = new System.Drawing.Size(59, 39);
@@ -179,7 +177,7 @@
             // 
             // textFieldSpellName
             // 
-            this.textFieldSpellName.LabelText = "Name";
+            this.textFieldSpellName.LabelText = "";
             this.textFieldSpellName.Location = new System.Drawing.Point(12, 12);
             this.textFieldSpellName.Name = "textFieldSpellName";
             this.textFieldSpellName.Size = new System.Drawing.Size(208, 39);
@@ -190,9 +188,8 @@
             this.checkBoxRitual.AutoSize = true;
             this.checkBoxRitual.Location = new System.Drawing.Point(389, 125);
             this.checkBoxRitual.Name = "checkBoxRitual";
-            this.checkBoxRitual.Size = new System.Drawing.Size(53, 17);
+            this.checkBoxRitual.Size = new System.Drawing.Size(15, 14);
             this.checkBoxRitual.TabIndex = 16;
-            this.checkBoxRitual.Text = "Ritual";
             this.checkBoxRitual.UseVisualStyleBackColor = true;
             // 
             // SpellEditor
@@ -206,7 +203,7 @@
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.buttonAddNew);
             this.Controls.Add(this.comboBoxFieldSpellSelect);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelDesc);
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.textFieldRange);
             this.Controls.Add(this.comboBoxCastTime);
@@ -238,7 +235,7 @@
         private SpellComponentsControl spellComponentsControl1;
         private _5eCharGen.View.TextFieldControl textFieldDuration;
         private System.Windows.Forms.TextBox textBoxDescription;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelDesc;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.Button buttonAddNew;

@@ -14,16 +14,21 @@ namespace _5eCharGen.Editor.View
 {
     public partial class ProficiencyEditor : Form
     {
+        private ToolTip tt = new ToolTip();
         public ProficiencyEditor()
         {
-            InitializeComponent();            
+            InitializeComponent();
             UpdateIndex();
             UpdateStrings();
-           
+
         }
 
         private void UpdateStrings()
         {
+            tt.SetToolTip(buttonSave, Language.GetLocalizedString("BTN_SAVE"));
+            tt.SetToolTip(buttonNew, Language.GetLocalizedString("BTN_NEW"));
+            tt.SetToolTip(buttonRemove, Language.GetLocalizedString("BTN_REMOVE"));
+
             comboBoxFieldProficiencySelect.LabelText = Language.GetLocalizedString("SELECT_PROFICIENCY");
             textFieldProfName.LabelText = Language.GetLocalizedString("LABEL_NAME");
             comboBoxProfType.LabelText = Language.GetLocalizedString("LABEL_TYPE");
@@ -77,7 +82,6 @@ namespace _5eCharGen.Editor.View
             pf.DerivedStat = comboBoxFieldDerivedStat.ComboBox.SelectedIndex != -1 ?
                 (NotationType)comboBoxFieldDerivedStat.ComboBox.SelectedIndex : NotationType.PROF;
 
-            Data.RemoveProficiency(pf.Name);
             Data.AddProficiency(pf);
 
             ClearForm();
@@ -86,22 +90,21 @@ namespace _5eCharGen.Editor.View
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
-            if (comboBoxFieldProficiencySelect.ComboBox.SelectedItem != null)
+            if (comboBoxFieldProficiencySelect.ComboBox.SelectedItem == null)
+                return;
+
+            string pf = comboBoxFieldProficiencySelect.ComboBox.SelectedItem.ToString();
+            DialogResult dr = MessageBox.Show(string.Format(Language.GetLocalizedString("CONFIRM_REMOVAL"), Language.GetLocalizedString("PROFICIENCY")
+                , pf), Language.GetLocalizedString("CONFIRM"), MessageBoxButtons.YesNo);
+            switch (dr)
             {
-                string pf = comboBoxFieldProficiencySelect.ComboBox.SelectedItem.ToString();
-                DialogResult dr = MessageBox.Show(string.Format(Language.GetLocalizedString("CONFIRM_REMOVAL"), Language.GetLocalizedString("PROFICIENCY")
-                    , pf), Language.GetLocalizedString("CONFIRM"), MessageBoxButtons.YesNo);
-                switch (dr)
-                {
-                    case DialogResult.Yes:
-                        Data.RemoveProficiency(pf);
-                        goto default;
-                    default:
-                        ClearForm();
-                        UpdateIndex();
-                        break;
-                }
+                case DialogResult.Yes:
+                    Data.RemoveProficiency(pf);
+                    ClearForm();
+                    UpdateIndex();
+                    break;
             }
+
         }
 
         private void ClearForm()
@@ -113,6 +116,7 @@ namespace _5eCharGen.Editor.View
         private void buttonNew_Click(object sender, EventArgs e)
         {
             ClearForm();
+            UpdateIndex();
         }
     }
 }

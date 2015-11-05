@@ -34,6 +34,14 @@ namespace _5eCharGen.View
             OnTextChanged(e);
         }
 
+        private void textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                OnKeyPress(e);
+            }
+        }
+
         public Label Label { get { return label; } }
         public TextBox TextBox { get { return textBox; } }
     }

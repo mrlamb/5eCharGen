@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _5eCharGen.View.Localization;
 
 namespace _5eCharGen.Editor.View
 {
@@ -39,6 +40,16 @@ namespace _5eCharGen.Editor.View
         public SpellComponentsControl()
         {
             InitializeComponent();
+            UpdateStrings();
+        }
+
+        private void UpdateStrings()
+        {
+            label.Text = Language.GetLocalizedString("SPELL_COMPONENTS");
+            label1.Text = Language.GetLocalizedString("MATERIAL_DESCRIPTION");
+            checkBoxVerbal.Text = Language.GetLocalizedString("VERBAL");
+            checkBoxSomatic.Text = Language.GetLocalizedString("SOMATIC");
+            checkBoxMaterial.Text = Language.GetLocalizedString("MATERIAL");
         }
 
         private void checkBoxMaterial_CheckedChanged(object sender, EventArgs e)

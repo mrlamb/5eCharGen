@@ -94,7 +94,7 @@
             // 
             // comboBoxFieldDerivedStat
             // 
-            this.comboBoxFieldDerivedStat.LabelText = "Derived Stat (If Any)";
+            this.comboBoxFieldDerivedStat.LabelText = "";
             this.comboBoxFieldDerivedStat.Location = new System.Drawing.Point(13, 103);
             this.comboBoxFieldDerivedStat.Name = "comboBoxFieldDerivedStat";
             this.comboBoxFieldDerivedStat.Size = new System.Drawing.Size(123, 39);

@@ -41,18 +41,16 @@
             this.label.AutoSize = true;
             this.label.Location = new System.Drawing.Point(4, 4);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(92, 13);
+            this.label.Size = new System.Drawing.Size(0, 13);
             this.label.TabIndex = 0;
-            this.label.Text = "Spell Components";
             // 
             // checkBoxVerbal
             // 
             this.checkBoxVerbal.AutoSize = true;
             this.checkBoxVerbal.Location = new System.Drawing.Point(7, 29);
             this.checkBoxVerbal.Name = "checkBoxVerbal";
-            this.checkBoxVerbal.Size = new System.Drawing.Size(56, 17);
+            this.checkBoxVerbal.Size = new System.Drawing.Size(15, 14);
             this.checkBoxVerbal.TabIndex = 1;
-            this.checkBoxVerbal.Text = "Verbal";
             this.checkBoxVerbal.UseVisualStyleBackColor = true;
             // 
             // checkBoxSomatic
@@ -60,9 +58,8 @@
             this.checkBoxSomatic.AutoSize = true;
             this.checkBoxSomatic.Location = new System.Drawing.Point(7, 53);
             this.checkBoxSomatic.Name = "checkBoxSomatic";
-            this.checkBoxSomatic.Size = new System.Drawing.Size(64, 17);
+            this.checkBoxSomatic.Size = new System.Drawing.Size(15, 14);
             this.checkBoxSomatic.TabIndex = 2;
-            this.checkBoxSomatic.Text = "Somatic";
             this.checkBoxSomatic.UseVisualStyleBackColor = true;
             // 
             // checkBoxMaterial
@@ -70,9 +67,8 @@
             this.checkBoxMaterial.AutoSize = true;
             this.checkBoxMaterial.Location = new System.Drawing.Point(7, 77);
             this.checkBoxMaterial.Name = "checkBoxMaterial";
-            this.checkBoxMaterial.Size = new System.Drawing.Size(63, 17);
+            this.checkBoxMaterial.Size = new System.Drawing.Size(15, 14);
             this.checkBoxMaterial.TabIndex = 3;
-            this.checkBoxMaterial.Text = "Material";
             this.checkBoxMaterial.UseVisualStyleBackColor = true;
             this.checkBoxMaterial.CheckedChanged += new System.EventHandler(this.checkBoxMaterial_CheckedChanged);
             // 
@@ -89,9 +85,8 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(4, 101);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 13);
+            this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Description of Material";
             // 
             // SpellComponentsControl
             // 

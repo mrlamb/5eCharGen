@@ -103,6 +103,16 @@ namespace _5eCharGen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PendingDelete_13298 {
+            get {
+                object obj = ResourceManager.GetObject("PendingDelete_13298", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap refresh_16xLG {
             get {
                 object obj = ResourceManager.GetObject("refresh_16xLG", resourceCulture);

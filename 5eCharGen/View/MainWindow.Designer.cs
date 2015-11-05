@@ -41,9 +41,10 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proficiencyEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.specialAbilityEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spellEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabCharacters = new System.Windows.Forms.TabControl();
-            this.specialAbilityEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.raceEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,6 +132,7 @@
             // 
             this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.proficiencyEditorToolStripMenuItem,
+            this.raceEditorToolStripMenuItem,
             this.specialAbilityEditorToolStripMenuItem,
             this.spellEditorToolStripMenuItem});
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
@@ -143,6 +145,13 @@
             this.proficiencyEditorToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.proficiencyEditorToolStripMenuItem.Text = "Proficiency Editor";
             this.proficiencyEditorToolStripMenuItem.Click += new System.EventHandler(this.proficiencyEditorToolStripMenuItem_Click);
+            // 
+            // specialAbilityEditorToolStripMenuItem
+            // 
+            this.specialAbilityEditorToolStripMenuItem.Name = "specialAbilityEditorToolStripMenuItem";
+            this.specialAbilityEditorToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.specialAbilityEditorToolStripMenuItem.Text = "Special Ability Editor";
+            this.specialAbilityEditorToolStripMenuItem.Click += new System.EventHandler(this.specialAbilityEditorToolStripMenuItem_Click);
             // 
             // spellEditorToolStripMenuItem
             // 
@@ -162,12 +171,12 @@
             this.tabCharacters.Size = new System.Drawing.Size(740, 475);
             this.tabCharacters.TabIndex = 3;
             // 
-            // specialAbilityEditorToolStripMenuItem
+            // raceEditorToolStripMenuItem
             // 
-            this.specialAbilityEditorToolStripMenuItem.Name = "specialAbilityEditorToolStripMenuItem";
-            this.specialAbilityEditorToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.specialAbilityEditorToolStripMenuItem.Text = "Special Ability Editor";
-            this.specialAbilityEditorToolStripMenuItem.Click += new System.EventHandler(this.specialAbilityEditorToolStripMenuItem_Click);
+            this.raceEditorToolStripMenuItem.Name = "raceEditorToolStripMenuItem";
+            this.raceEditorToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.raceEditorToolStripMenuItem.Text = "Race Editor";
+            this.raceEditorToolStripMenuItem.Click += new System.EventHandler(this.raceEditorToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -205,6 +214,7 @@
         private System.Windows.Forms.ToolStripMenuItem spellEditorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proficiencyEditorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem specialAbilityEditorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem raceEditorToolStripMenuItem;
     }
 }
 

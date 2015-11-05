@@ -10,10 +10,11 @@ namespace _5eCharGen.Editor.View
     public partial class SpellEditor : Form
     {
         static readonly SpellEditor instance = new SpellEditor();
+        ToolTip tt = new ToolTip();
         public string SpellName
         {
-            get {return textFieldSpellName.Text; }
-            set { textFieldSpellName.Text = value;  }
+            get { return textFieldSpellName.Text; }
+            set { textFieldSpellName.Text = value; }
         }
 
         public int Level
@@ -106,20 +107,33 @@ namespace _5eCharGen.Editor.View
                 comboBoxFieldSpellLevel.ComboBox.Items.Add(i.ToString());
             }
 
+            comboBoxSpellSchool.ComboBox.Items.AddRange(new string[] {
+                "Abjuration", "Alteration", "Conjuration", "Divination",
+                "Evocation", "Illusion", "Necromancy", "Transmutation"});
 
-            foreach (string school in new string[] {"Abjuration", "Alteration", "Conjuration", "Divination",
-                "Evocation", "Illusion", "Necromancy", "Transmutation"})
-            {
-                comboBoxSpellSchool.ComboBox.Items.Add(school);
-            }
-
-
-            foreach (string time in new string[] { "bonus action", "action", "reaction", "turn", "minute(s)", "hour(s)" })
-            {
-                comboBoxCastTime.Items.Add(time);
-            }
+            comboBoxCastTime.Items.AddRange(new string[] { "bonus action",
+                "reaction", "turn", "minute(s)", "hour(s)" });
 
             UpdateIndex();
+            UpdateStrings();
+        }
+
+        private void UpdateStrings()
+        {
+            tt.SetToolTip(buttonSave, Language.GetLocalizedString("BTN_SAVE"));
+            tt.SetToolTip(buttonAddNew, Language.GetLocalizedString("BTN_NEW"));
+            tt.SetToolTip(buttonRemove, Language.GetLocalizedString("BTN_REMOVE"));
+
+            textFieldSpellName.LabelText = Language.GetLocalizedString("LABEL_NAME");
+            comboBoxFieldSpellLevel.LabelText = Language.GetLocalizedString("LABEL_LEVEL");
+            comboBoxSpellSchool.LabelText = Language.GetLocalizedString("LABEL_SCHOOL");
+            labelCastTime.Text = Language.GetLocalizedString("LABEL_CAST_TIME");
+            textFieldRange.LabelText = Language.GetLocalizedString("LABEL_RANGE");
+            textFieldDuration.LabelText = Language.GetLocalizedString("LABEL_DURATION");
+            checkBoxRitual.Text = Language.GetLocalizedString("LABEL_RITUAL");
+            labelDesc.Text = Language.GetLocalizedString("LABEL_DESCRIPTION");
+            comboBoxFieldSpellSelect.LabelText = Language.GetLocalizedString("SELECT_SPELL");
+
         }
 
         private void comboBoxFieldSpellSelect_SelectedIndexChanged(object sender, EventArgs e)
@@ -215,7 +229,6 @@ namespace _5eCharGen.Editor.View
             newSpell.Description = Description;
             newSpell.Ritual = Ritual;
 
-            Data.RemoveSpell(newSpell.Name);
             Data.AddSpell(newSpell);
 
             UpdateIndex();
@@ -223,6 +236,9 @@ namespace _5eCharGen.Editor.View
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
+            if (comboBoxFieldSpellSelect.ComboBox.SelectedItem == null)
+                return;
+
             string spellName = comboBoxFieldSpellSelect.ComboBox.SelectedItem.ToString();
             if (spellName.Length > 0)
             {
@@ -233,8 +249,7 @@ namespace _5eCharGen.Editor.View
                 {
                     case DialogResult.Yes:
                         Data.RemoveSpell(spellName);
-                        goto default;
-                    default:
+                        ClearForm();
                         UpdateIndex();
                         break;
                 }

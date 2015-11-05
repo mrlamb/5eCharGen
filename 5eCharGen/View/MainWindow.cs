@@ -94,5 +94,13 @@ namespace _5eCharGen.View
             sae.Top += 60;
             sae.Show();
         }
+
+        private void raceEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RaceEditor re = new RaceEditor();
+            re.Location = Location;
+            re.Top += 60;
+            re.Show();
+        }
     }
 }

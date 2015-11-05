@@ -41,6 +41,7 @@
             this.textBox.Size = new System.Drawing.Size(202, 20);
             this.textBox.TabIndex = 1;
             this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
+            this.textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label
             // 
@@ -52,8 +53,6 @@
             // 
             // TextFieldControl
             // 
-            //this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            //this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label);
             this.Controls.Add(this.textBox);
             this.Name = "TextFieldControl";

@@ -30,6 +30,9 @@ namespace _5eCharGen.Editor.View
             tt.SetToolTip(buttonAddProfValue, Language.GetLocalizedString("BTN_ADD_PROF_VALUE"));
             tt.SetToolTip(buttonAddNewProf, Language.GetLocalizedString("BTN_ADD_NEW_PROF"));
             tt.SetToolTip(buttonRefresh, Language.GetLocalizedString("BTN_REFRESH"));
+            tt.SetToolTip(buttonSave, Language.GetLocalizedString("BTN_SAVE"));
+            tt.SetToolTip(buttonAddNew, Language.GetLocalizedString("BTN_NEW"));
+            tt.SetToolTip(buttonRemove, Language.GetLocalizedString("BTN_REMOVE"));
 
             comboBoxFieldSAName.LabelText = Language.GetLocalizedString("SELECT_ABILITY");
             Summary.Text = Language.GetLocalizedString("SHOW_SUMMARY");
@@ -64,7 +67,7 @@ namespace _5eCharGen.Editor.View
             comboBoxFieldControlProfName.ComboBox.Items.Clear();
             comboBoxFieldControlProfName.ComboBox.Items.AddRange
                 (Data.GetAllProficiencies().OrderBy(x => x.Name).ToArray());
-            
+
             comboBoxFieldSpellName.ComboBox.Items.Clear();
             comboBoxFieldSpellName.ComboBox.Items.AddRange(Data.GetAllSpells().OrderBy(x => x.Name).ToArray());
         }
@@ -252,22 +255,21 @@ namespace _5eCharGen.Editor.View
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
-            if (comboBoxFieldSAName.ComboBox.SelectedItem != null)
+            if (comboBoxFieldSAName.ComboBox.SelectedItem == null)
+                return;
+
+            DialogResult dr = MessageBox.Show(string.Format(Language.GetLocalizedString("CONFIRM_REMOVAL"),
+                Language.GetLocalizedString("SPECIAL_ABILITY"), comboBoxFieldSAName.ComboBox.SelectedItem.ToString())
+                , Language.GetLocalizedString("CONFIRM"), MessageBoxButtons.YesNo);
+            switch (dr)
             {
-                string sa = comboBoxFieldSAName.ComboBox.SelectedItem.ToString();
-                DialogResult dr = MessageBox.Show(string.Format(Language.GetLocalizedString("CONFIRM_REMOVAL"),
-                    Language.GetLocalizedString("SPECIAL_ABILITY"), sa), Language.GetLocalizedString("CONFIRM"), MessageBoxButtons.YesNo);
-                switch (dr)
-                {
-                    case DialogResult.Yes:
-                        Data.RemoveSA(sa);
-                        goto default;
-                    default:
-                        ClearForm();
-                        UpdateIndex();
-                        break;
-                }
+                case DialogResult.Yes:
+                    Data.RemoveSA(comboBoxFieldSAName.ComboBox.SelectedItem.ToString());
+                    ClearForm();
+                    UpdateIndex();
+                    break;
             }
+
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -338,19 +340,8 @@ namespace _5eCharGen.Editor.View
             sa.ACBonus = textFieldControlAC.Text;
 
             //Now....save it.
-            try
-            {
-                Data.RemoveSA(sa.Name);
-            }
-            catch (KeyNotFoundException)
-            {
-                // If KeyNotFound we'll just add our new spell
-            }
-            finally
-            {
-                Data.AddSA(sa);
+            Data.AddSA(sa);
 
-            }
             ClearForm();
             UpdateIndex();
 

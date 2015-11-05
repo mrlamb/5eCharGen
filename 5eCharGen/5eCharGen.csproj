@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -71,6 +71,18 @@
     </Compile>
     <Compile Include="Editor\View\ProficiencyEditor.Designer.cs">
       <DependentUpon>ProficiencyEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\View\RaceEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\View\RaceEditor.Designer.cs">
+      <DependentUpon>RaceEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\View\SmallAttBlock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\View\SmallAttBlock.Designer.cs">
+      <DependentUpon>SmallAttBlock.cs</DependentUpon>
     </Compile>
     <Compile Include="Editor\View\SpecialAbilityEditor.cs">
       <SubType>Form</SubType>
@@ -146,6 +158,12 @@
     <EmbeddedResource Include="Editor\View\ProficiencyEditor.resx">
       <DependentUpon>ProficiencyEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editor\View\RaceEditor.resx">
+      <DependentUpon>RaceEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\View\SmallAttBlock.resx">
+      <DependentUpon>SmallAttBlock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\View\SpecialAbilityEditor.resx">
       <DependentUpon>SpecialAbilityEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,9 +201,6 @@
     <EmbeddedResource Include="View\TextFieldControl.resx">
       <DependentUpon>TextFieldControl.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Data\Feat.json" />
-    <None Include="Data\Spell.json" />
-    <None Include="Data\Race.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -229,6 +244,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AddMark_10580.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PendingDelete_13298.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
