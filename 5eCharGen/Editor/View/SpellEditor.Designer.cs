@@ -217,7 +217,7 @@
             this.Name = "SpellEditor";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "SpellEditor";
+            this.Text = "Spell Editor";
             this.ResumeLayout(false);
             this.PerformLayout();
 

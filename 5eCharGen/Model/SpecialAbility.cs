@@ -19,6 +19,7 @@ namespace _5eCharGen
         {
             AttributeBonus = new Dictionary<string, int>();
             SpellsAdded = new List<string>();
+            ProficienciesAdded = new List<string>();
             ProficienciesAltered = new Dictionary<string, string>();
         }
 

@@ -15,7 +15,7 @@ namespace _5eCharGen
         public Race Race { get; set; }
         public Dictionary<string, int> Attributes { get; set; }
         public Dictionary<string, Dictionary<string, Proficiency>> Proficiencies { get; set; }
-        public List<Feats> Feats { get; set; }
+        public List<Feat> Feats { get; set; }
         public Inventory Inventory { get; set; }
 
         public Character()

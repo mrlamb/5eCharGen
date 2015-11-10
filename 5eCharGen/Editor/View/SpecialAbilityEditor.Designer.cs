@@ -550,7 +550,7 @@
             this.MaximizeBox = false;
             this.Name = "SpecialAbilityEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "SpecialAbilityEditor";
+            this.Text = "Special Ability Editor";
             this.tabControl1.ResumeLayout(false);
             this.tabPageBasicStats.ResumeLayout(false);
             this.tabPageBasicStats.PerformLayout();

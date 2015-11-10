@@ -14,7 +14,7 @@ namespace _5eCharGen
     public static partial class Data
     {
         private static Dictionary<string, Race> races = new Dictionary<string, Race>();
-        private static Dictionary<string, Feats> feats = new Dictionary<string, Feats>();
+        private static Dictionary<string, Feat> feats = new Dictionary<string, Feat>();
 
         private static Dictionary<string, Spell> spells = new Dictionary<string, Spell>();
         private static Dictionary<string, Proficiency> proficiencies = new Dictionary<string, Proficiency>();
@@ -27,7 +27,7 @@ namespace _5eCharGen
 
             log.Show();
             races = Load<Race>();
-            feats = Load<Feats>();
+            feats = Load<Feat>();
             spells = Load<Spell>();
             proficiencies = Load<Proficiency>();
             specialAbilities = Load<SpecialAbility>();

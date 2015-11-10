@@ -14,7 +14,8 @@ namespace _5eCharGen.Controller
         public Race Race { get; set; }
         public IDictionary<string, int> Attributes { get; set; }
         public IList<Proficiency> Proficiencies { get; set; }
-        public IList<Feats> Feats { get; set; }
+        public IList<Feat> Feats { get; set; }
+        public float CasterLevel { get; set; }
         //public Inventory Inventory { get; set; }
 
 

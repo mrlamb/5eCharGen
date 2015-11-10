@@ -169,9 +169,9 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Location = new System.Drawing.Point(16, 58);
             this.label1.MaximumSize = new System.Drawing.Size(0, 2);
-            this.label1.MinimumSize = new System.Drawing.Size(350, 0);
+            this.label1.MinimumSize = new System.Drawing.Size(600, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(350, 2);
+            this.label1.Size = new System.Drawing.Size(600, 2);
             this.label1.TabIndex = 32;
             // 
             // lstSA
@@ -280,7 +280,7 @@
             this.Controls.Add(this.cmbSelectRace);
             this.Name = "RaceEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "RaceEditor";
+            this.Text = "Race Editor";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -66,6 +66,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\CharacterController.cs" />
+    <Compile Include="Editor\View\FeatEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\View\FeatEditor.Designer.cs">
+      <DependentUpon>FeatEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\View\ProficiencyEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,7 @@
     <Compile Include="Interfaces\ICharacter.cs" />
     <Compile Include="Model\Notation.cs" />
     <Compile Include="Model\Data2.cs" />
+    <Compile Include="Model\Prerequisite.cs" />
     <Compile Include="Model\ProgramOptions.cs" />
     <Compile Include="View\AttributeBlock.cs">
       <SubType>UserControl</SubType>
@@ -155,6 +162,9 @@
     <Compile Include="View\TextFieldControl.Designer.cs">
       <DependentUpon>TextFieldControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Editor\View\FeatEditor.resx">
+      <DependentUpon>FeatEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\View\ProficiencyEditor.resx">
       <DependentUpon>ProficiencyEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +211,9 @@
     <EmbeddedResource Include="View\TextFieldControl.resx">
       <DependentUpon>TextFieldControl.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Languages\English.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
