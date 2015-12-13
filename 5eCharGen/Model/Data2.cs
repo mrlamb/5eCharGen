@@ -37,6 +37,7 @@ namespace _5eCharGen
             }
             proficiencies.Add(pf.Name, pf);
             Save<Proficiency>(proficiencies);
+            updateIndexes();
         }
 
         internal static void RemoveProficiency(string name)
@@ -45,6 +46,7 @@ namespace _5eCharGen
             {
                 proficiencies.Remove(name);
                 Save<Proficiency>(proficiencies);
+                updateIndexes();
             }
         }
 
@@ -67,6 +69,7 @@ namespace _5eCharGen
             }
             races.Add(newRace.Name, newRace);
             Save<Race>(races);
+            updateIndexes();
 
         }
 
@@ -76,6 +79,7 @@ namespace _5eCharGen
             {
                 races.Remove(name);
                 Save<Race>(races);
+                updateIndexes();
             }
         }
 
@@ -98,6 +102,7 @@ namespace _5eCharGen
             }
             specialAbilities.Add(sa.Name, sa);
             Save<SpecialAbility>(specialAbilities);
+            updateIndexes();
         }
 
         internal static void RemoveSA(string name)
@@ -106,6 +111,7 @@ namespace _5eCharGen
             {
                 specialAbilities.Remove(name);
                 Save<SpecialAbility>(specialAbilities);
+                updateIndexes();
             }
         }
 
@@ -128,6 +134,7 @@ namespace _5eCharGen
             }
             spells.Add(spell.Name, spell);
             Save<Spell>(spells);
+            updateIndexes();
         }
 
         internal static void RemoveSpell(string name)
@@ -136,6 +143,7 @@ namespace _5eCharGen
             {
                 spells.Remove(name);
                 Save<Spell>(spells);
+                updateIndexes();
             }
         }
 

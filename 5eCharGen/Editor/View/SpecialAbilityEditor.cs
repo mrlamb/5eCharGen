@@ -15,12 +15,16 @@ namespace _5eCharGen.Editor.View
     public partial class SpecialAbilityEditor : Form
     {
         private ToolTip tt = new ToolTip();
+        private Label lblSummary;
 
         public SpecialAbilityEditor()
         {
             InitializeComponent();
             UpdateIndex();
+            UpdateSharedIndex();
             UpdateStrings();
+            Data.AddUpdater(UpdateSharedIndex);
+
         }
 
         private void UpdateStrings()
@@ -43,8 +47,8 @@ namespace _5eCharGen.Editor.View
             tabPageMisc.Text = Language.GetLocalizedString("LABEL_MISC");
             labelDescription.Text = Language.GetLocalizedString("LABEL_DESCRIPTION");
             labelInstACSpeed.Text = Language.GetLocalizedString("INSTRUCTIONS_INPUT_VALUES");
-            textFieldControlSpeed.LabelText = Language.GetLocalizedString("AC_BONUS");
-            textFieldControlAC.LabelText = Language.GetLocalizedString("SPEED_BONUS");
+            textFieldControlAC.LabelText = Language.GetLocalizedString("AC_BONUS");
+            textFieldControlSpeed.LabelText = Language.GetLocalizedString("SPEED_BONUS");
             textFieldControlName.LabelText = Language.GetLocalizedString("LABEL_NAME");
             comboBoxFieldControlProfName.LabelText = Language.GetLocalizedString("SELECT_PROFICIENCY");
             comboBoxFieldSpellName.LabelText = Language.GetLocalizedString("SELECT_SPELL");
@@ -63,7 +67,10 @@ namespace _5eCharGen.Editor.View
         {
             comboBoxFieldSAName.ComboBox.Items.Clear();
             comboBoxFieldSAName.ComboBox.Items.AddRange(Data.GetAllSAs().OrderBy(x => x.Name).ToArray());
+        }
 
+        private void UpdateSharedIndex()
+        {
             comboBoxFieldControlProfName.ComboBox.Items.Clear();
             comboBoxFieldControlProfName.ComboBox.Items.AddRange
                 (Data.GetAllProficiencies().OrderBy(x => x.Name).ToArray());
@@ -344,19 +351,36 @@ namespace _5eCharGen.Editor.View
 
             ClearForm();
             UpdateIndex();
+            comboBoxFieldSAName.ComboBox.SelectedIndex = comboBoxFieldSAName.ComboBox.FindStringExact(sa.Name);
 
 
         }
 
         private void Summary_CheckedChanged(object sender, EventArgs e)
         {
+
             if (Summary.Checked)
             {
                 this.Height += 200;
+                if (lblSummary == null)
+                {
+                    lblSummary = new Label();
+                    lblSummary.Top = this.Height - 200;
+                    lblSummary.Left = 23;
+                    lblSummary.AutoSize = true;
+                    this.Controls.Add(lblSummary);
+                }
+                if (comboBoxFieldSAName.ComboBox.SelectedItem != null)
+                {
+                    lblSummary.Text = Data.GetSA(comboBoxFieldSAName.ComboBox.SelectedItem.ToString()).GetSummary();
+                }
             }
+
+
             else
             {
                 this.Height -= 200;
+                lblSummary.Text = string.Empty;
             }
 
         }
@@ -370,6 +394,11 @@ namespace _5eCharGen.Editor.View
         {
             ProficiencyEditor pe = new ProficiencyEditor();
             pe.Show();
+        }
+
+        private void SpecialAbilityEditor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Data.RemoveUpdater(UpdateSharedIndex);
         }
     }
 }

@@ -32,18 +32,9 @@
             this.tabPageBasicStats = new System.Windows.Forms.TabPage();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.labelDescription = new System.Windows.Forms.Label();
-            this.textFieldControlName = new _5eCharGen.View.TextFieldControl();
             this.tabPageAttributes = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.labelInstACSpeed = new System.Windows.Forms.Label();
-            this.textFieldControlAC = new _5eCharGen.View.TextFieldControl();
-            this.textFieldControlSpeed = new _5eCharGen.View.TextFieldControl();
-            this.textFieldControlCHA = new _5eCharGen.View.TextFieldControl();
-            this.textFieldControlINT = new _5eCharGen.View.TextFieldControl();
-            this.textFieldControlWIS = new _5eCharGen.View.TextFieldControl();
-            this.textFieldControlCON = new _5eCharGen.View.TextFieldControl();
-            this.textFieldControlDEX = new _5eCharGen.View.TextFieldControl();
-            this.textFieldControlSTR = new _5eCharGen.View.TextFieldControl();
             this.tabPageProf = new System.Windows.Forms.TabPage();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.buttonAddNewProf = new System.Windows.Forms.Button();
@@ -61,18 +52,27 @@
             this.buttonAddProf = new System.Windows.Forms.Button();
             this.labelAddProf = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBoxFieldControlProfName = new _5eCharGen.View.ComboBoxFieldControl();
             this.tabPageSpells = new System.Windows.Forms.TabPage();
             this.buttonRemoveSpell = new System.Windows.Forms.Button();
             this.comboBoxSpellsAdded = new System.Windows.Forms.ComboBox();
             this.buttonAddSpell = new System.Windows.Forms.Button();
-            this.comboBoxFieldSpellName = new _5eCharGen.View.ComboBoxFieldControl();
             this.tabPageMisc = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
             this.Summary = new System.Windows.Forms.CheckBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.buttonAddNew = new System.Windows.Forms.Button();
+            this.textFieldControlName = new _5eCharGen.View.TextFieldControl();
+            this.textFieldControlAC = new _5eCharGen.View.TextFieldControl();
+            this.textFieldControlSpeed = new _5eCharGen.View.TextFieldControl();
+            this.textFieldControlCHA = new _5eCharGen.View.TextFieldControl();
+            this.textFieldControlINT = new _5eCharGen.View.TextFieldControl();
+            this.textFieldControlWIS = new _5eCharGen.View.TextFieldControl();
+            this.textFieldControlCON = new _5eCharGen.View.TextFieldControl();
+            this.textFieldControlDEX = new _5eCharGen.View.TextFieldControl();
+            this.textFieldControlSTR = new _5eCharGen.View.TextFieldControl();
+            this.comboBoxFieldControlProfName = new _5eCharGen.View.ComboBoxFieldControl();
+            this.comboBoxFieldSpellName = new _5eCharGen.View.ComboBoxFieldControl();
             this.comboBoxFieldSAName = new _5eCharGen.View.ComboBoxFieldControl();
             this.tabControl1.SuspendLayout();
             this.tabPageBasicStats.SuspendLayout();
@@ -126,14 +126,6 @@
             this.labelDescription.Size = new System.Drawing.Size(0, 13);
             this.labelDescription.TabIndex = 1;
             // 
-            // textFieldControlName
-            // 
-            this.textFieldControlName.LabelText = "";
-            this.textFieldControlName.Location = new System.Drawing.Point(7, 7);
-            this.textFieldControlName.Name = "textFieldControlName";
-            this.textFieldControlName.Size = new System.Drawing.Size(208, 39);
-            this.textFieldControlName.TabIndex = 0;
-            // 
             // tabPageAttributes
             // 
             this.tabPageAttributes.BackColor = System.Drawing.SystemColors.Control;
@@ -172,76 +164,6 @@
             this.labelInstACSpeed.Name = "labelInstACSpeed";
             this.labelInstACSpeed.Size = new System.Drawing.Size(0, 13);
             this.labelInstACSpeed.TabIndex = 8;
-            // 
-            // textFieldControlAC
-            // 
-            this.textFieldControlAC.LabelText = "";
-            this.textFieldControlAC.Location = new System.Drawing.Point(222, 7);
-            this.textFieldControlAC.Name = "textFieldControlAC";
-            this.textFieldControlAC.Size = new System.Drawing.Size(77, 39);
-            this.textFieldControlAC.TabIndex = 7;
-            // 
-            // textFieldControlSpeed
-            // 
-            this.textFieldControlSpeed.LabelText = "";
-            this.textFieldControlSpeed.Location = new System.Drawing.Point(137, 7);
-            this.textFieldControlSpeed.Name = "textFieldControlSpeed";
-            this.textFieldControlSpeed.Size = new System.Drawing.Size(78, 39);
-            this.textFieldControlSpeed.TabIndex = 6;
-            // 
-            // textFieldControlCHA
-            // 
-            this.textFieldControlCHA.LabelText = "CHA";
-            this.textFieldControlCHA.Location = new System.Drawing.Point(77, 99);
-            this.textFieldControlCHA.Name = "textFieldControlCHA";
-            this.textFieldControlCHA.Size = new System.Drawing.Size(37, 39);
-            this.textFieldControlCHA.TabIndex = 5;
-            this.textFieldControlCHA.Tag = "Attribute";
-            // 
-            // textFieldControlINT
-            // 
-            this.textFieldControlINT.LabelText = "INT";
-            this.textFieldControlINT.Location = new System.Drawing.Point(77, 53);
-            this.textFieldControlINT.Name = "textFieldControlINT";
-            this.textFieldControlINT.Size = new System.Drawing.Size(37, 39);
-            this.textFieldControlINT.TabIndex = 4;
-            this.textFieldControlINT.Tag = "Attribute";
-            // 
-            // textFieldControlWIS
-            // 
-            this.textFieldControlWIS.LabelText = "WIS";
-            this.textFieldControlWIS.Location = new System.Drawing.Point(77, 7);
-            this.textFieldControlWIS.Name = "textFieldControlWIS";
-            this.textFieldControlWIS.Size = new System.Drawing.Size(37, 39);
-            this.textFieldControlWIS.TabIndex = 3;
-            this.textFieldControlWIS.Tag = "Attribute";
-            // 
-            // textFieldControlCON
-            // 
-            this.textFieldControlCON.LabelText = "CON";
-            this.textFieldControlCON.Location = new System.Drawing.Point(7, 99);
-            this.textFieldControlCON.Name = "textFieldControlCON";
-            this.textFieldControlCON.Size = new System.Drawing.Size(37, 39);
-            this.textFieldControlCON.TabIndex = 2;
-            this.textFieldControlCON.Tag = "Attribute";
-            // 
-            // textFieldControlDEX
-            // 
-            this.textFieldControlDEX.LabelText = "DEX";
-            this.textFieldControlDEX.Location = new System.Drawing.Point(7, 53);
-            this.textFieldControlDEX.Name = "textFieldControlDEX";
-            this.textFieldControlDEX.Size = new System.Drawing.Size(37, 39);
-            this.textFieldControlDEX.TabIndex = 1;
-            this.textFieldControlDEX.Tag = "Attribute";
-            // 
-            // textFieldControlSTR
-            // 
-            this.textFieldControlSTR.LabelText = "STR";
-            this.textFieldControlSTR.Location = new System.Drawing.Point(7, 7);
-            this.textFieldControlSTR.Name = "textFieldControlSTR";
-            this.textFieldControlSTR.Size = new System.Drawing.Size(37, 39);
-            this.textFieldControlSTR.TabIndex = 0;
-            this.textFieldControlSTR.Tag = "Attribute";
             // 
             // tabPageProf
             // 
@@ -409,14 +331,6 @@
             this.label4.Size = new System.Drawing.Size(0, 13);
             this.label4.TabIndex = 6;
             // 
-            // comboBoxFieldControlProfName
-            // 
-            this.comboBoxFieldControlProfName.LabelText = "";
-            this.comboBoxFieldControlProfName.Location = new System.Drawing.Point(7, 7);
-            this.comboBoxFieldControlProfName.Name = "comboBoxFieldControlProfName";
-            this.comboBoxFieldControlProfName.Size = new System.Drawing.Size(182, 41);
-            this.comboBoxFieldControlProfName.TabIndex = 0;
-            // 
             // tabPageSpells
             // 
             this.tabPageSpells.Controls.Add(this.buttonRemoveSpell);
@@ -458,14 +372,6 @@
             this.buttonAddSpell.TabIndex = 1;
             this.buttonAddSpell.UseVisualStyleBackColor = true;
             this.buttonAddSpell.Click += new System.EventHandler(this.buttonAddSpell_Click);
-            // 
-            // comboBoxFieldSpellName
-            // 
-            this.comboBoxFieldSpellName.LabelText = "";
-            this.comboBoxFieldSpellName.Location = new System.Drawing.Point(7, 7);
-            this.comboBoxFieldSpellName.Name = "comboBoxFieldSpellName";
-            this.comboBoxFieldSpellName.Size = new System.Drawing.Size(208, 39);
-            this.comboBoxFieldSpellName.TabIndex = 0;
             // 
             // tabPageMisc
             // 
@@ -525,6 +431,100 @@
             this.buttonAddNew.UseVisualStyleBackColor = true;
             this.buttonAddNew.Click += new System.EventHandler(this.buttonAddNew_Click);
             // 
+            // textFieldControlName
+            // 
+            this.textFieldControlName.LabelText = "";
+            this.textFieldControlName.Location = new System.Drawing.Point(7, 7);
+            this.textFieldControlName.Name = "textFieldControlName";
+            this.textFieldControlName.Size = new System.Drawing.Size(208, 39);
+            this.textFieldControlName.TabIndex = 0;
+            // 
+            // textFieldControlAC
+            // 
+            this.textFieldControlAC.LabelText = "";
+            this.textFieldControlAC.Location = new System.Drawing.Point(217, 5);
+            this.textFieldControlAC.Name = "textFieldControlAC";
+            this.textFieldControlAC.Size = new System.Drawing.Size(77, 39);
+            this.textFieldControlAC.TabIndex = 7;
+            // 
+            // textFieldControlSpeed
+            // 
+            this.textFieldControlSpeed.LabelText = "";
+            this.textFieldControlSpeed.Location = new System.Drawing.Point(133, 5);
+            this.textFieldControlSpeed.Name = "textFieldControlSpeed";
+            this.textFieldControlSpeed.Size = new System.Drawing.Size(78, 39);
+            this.textFieldControlSpeed.TabIndex = 6;
+            // 
+            // textFieldControlCHA
+            // 
+            this.textFieldControlCHA.LabelText = "CHA";
+            this.textFieldControlCHA.Location = new System.Drawing.Point(77, 99);
+            this.textFieldControlCHA.Name = "textFieldControlCHA";
+            this.textFieldControlCHA.Size = new System.Drawing.Size(37, 39);
+            this.textFieldControlCHA.TabIndex = 5;
+            this.textFieldControlCHA.Tag = "Attribute";
+            // 
+            // textFieldControlINT
+            // 
+            this.textFieldControlINT.LabelText = "INT";
+            this.textFieldControlINT.Location = new System.Drawing.Point(77, 53);
+            this.textFieldControlINT.Name = "textFieldControlINT";
+            this.textFieldControlINT.Size = new System.Drawing.Size(37, 39);
+            this.textFieldControlINT.TabIndex = 4;
+            this.textFieldControlINT.Tag = "Attribute";
+            // 
+            // textFieldControlWIS
+            // 
+            this.textFieldControlWIS.LabelText = "WIS";
+            this.textFieldControlWIS.Location = new System.Drawing.Point(77, 7);
+            this.textFieldControlWIS.Name = "textFieldControlWIS";
+            this.textFieldControlWIS.Size = new System.Drawing.Size(37, 39);
+            this.textFieldControlWIS.TabIndex = 3;
+            this.textFieldControlWIS.Tag = "Attribute";
+            // 
+            // textFieldControlCON
+            // 
+            this.textFieldControlCON.LabelText = "CON";
+            this.textFieldControlCON.Location = new System.Drawing.Point(7, 99);
+            this.textFieldControlCON.Name = "textFieldControlCON";
+            this.textFieldControlCON.Size = new System.Drawing.Size(37, 39);
+            this.textFieldControlCON.TabIndex = 2;
+            this.textFieldControlCON.Tag = "Attribute";
+            // 
+            // textFieldControlDEX
+            // 
+            this.textFieldControlDEX.LabelText = "DEX";
+            this.textFieldControlDEX.Location = new System.Drawing.Point(7, 53);
+            this.textFieldControlDEX.Name = "textFieldControlDEX";
+            this.textFieldControlDEX.Size = new System.Drawing.Size(37, 39);
+            this.textFieldControlDEX.TabIndex = 1;
+            this.textFieldControlDEX.Tag = "Attribute";
+            // 
+            // textFieldControlSTR
+            // 
+            this.textFieldControlSTR.LabelText = "STR";
+            this.textFieldControlSTR.Location = new System.Drawing.Point(7, 7);
+            this.textFieldControlSTR.Name = "textFieldControlSTR";
+            this.textFieldControlSTR.Size = new System.Drawing.Size(37, 39);
+            this.textFieldControlSTR.TabIndex = 0;
+            this.textFieldControlSTR.Tag = "Attribute";
+            // 
+            // comboBoxFieldControlProfName
+            // 
+            this.comboBoxFieldControlProfName.LabelText = "";
+            this.comboBoxFieldControlProfName.Location = new System.Drawing.Point(7, 7);
+            this.comboBoxFieldControlProfName.Name = "comboBoxFieldControlProfName";
+            this.comboBoxFieldControlProfName.Size = new System.Drawing.Size(182, 41);
+            this.comboBoxFieldControlProfName.TabIndex = 0;
+            // 
+            // comboBoxFieldSpellName
+            // 
+            this.comboBoxFieldSpellName.LabelText = "";
+            this.comboBoxFieldSpellName.Location = new System.Drawing.Point(7, 7);
+            this.comboBoxFieldSpellName.Name = "comboBoxFieldSpellName";
+            this.comboBoxFieldSpellName.Size = new System.Drawing.Size(208, 39);
+            this.comboBoxFieldSpellName.TabIndex = 0;
+            // 
             // comboBoxFieldSAName
             // 
             this.comboBoxFieldSAName.LabelText = "";
@@ -551,6 +551,7 @@
             this.Name = "SpecialAbilityEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Special Ability Editor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SpecialAbilityEditor_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabPageBasicStats.ResumeLayout(false);
             this.tabPageBasicStats.PerformLayout();

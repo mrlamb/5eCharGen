@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Text;
 
 namespace _5eCharGen
 {
@@ -26,6 +27,82 @@ namespace _5eCharGen
         public override string ToString()
         {
             return Name;
+        }
+
+        public string GetSummary()
+        {
+            var sb = new StringBuilder();
+            var usedAttributes = new Dictionary<string, int>();
+            foreach (var pair in AttributeBonus)
+            {
+                if (pair.Value > 0)
+                {
+                    usedAttributes.Add(pair.Key, pair.Value);
+                }
+            }
+
+            if (usedAttributes.Count > 0)
+            {
+                sb.Append("Attributes changed: ");
+            }
+
+            foreach (var pair in usedAttributes)
+            {
+                sb.Append(pair.Key + ": " + pair.Value + "\n\r");
+            }
+
+            if (SpellsAdded.Count > 0)
+            {
+                sb.Append("Spells added: ");
+                for (int i = 0, length = SpellsAdded.Count; i < length; i++)
+                {
+                    if (length -1 == i)
+                    {
+                        sb.Append(SpellsAdded[i] + "\n\r");
+                    }
+                    else
+                    {
+                        sb.Append(SpellsAdded[i] + ", ");
+                    }
+                }
+            }
+
+            if (ProficienciesAdded.Count > 0)
+            {
+                sb.Append("Proficiencies added: ");
+                for (int i = 0, length = ProficienciesAdded.Count; i < length; i++)
+                {
+                    if (length - 1 == i)
+                    {
+                        sb.Append(ProficienciesAdded[i] + "\n\r");
+                    }
+                    else
+                    {
+                        sb.Append(ProficienciesAdded[i] + ", ");
+                    }
+                }
+            }
+
+            if (ProficienciesAltered.Count > 0)
+            {
+                sb.Append("Proficiencies altered: ");
+                foreach(var pair in ProficienciesAltered)
+                {
+                    sb.Append(pair.Key + ": " + pair.Value);
+                }
+            }
+
+            if (!ACBonus.Equals(""))
+            {
+                sb.Append("AC Bonus: " + ACBonus + "\n\r");
+            }
+
+            if (!SpeedIncrease.Equals(""))
+            {
+                sb.Append("Speed Bonus: " + SpeedIncrease + "\n\r");
+            }
+
+            return sb.ToString();
         }
 
     }

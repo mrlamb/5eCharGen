@@ -21,6 +21,9 @@ namespace _5eCharGen
 
         private static Dictionary<string, SpecialAbility> specialAbilities = new Dictionary<string, SpecialAbility>();
 
+        public delegate void UpdateIndexesDelegate();
+        private static UpdateIndexesDelegate updateIndexes;
+
         private static ConsoleLog log = new ConsoleLog();
         static Data()
         {
@@ -41,6 +44,7 @@ namespace _5eCharGen
 
             if (File.Exists(filename))
             {
+                        
                 T[] dataArray = JsonConvert.DeserializeObject<T[]>(File.ReadAllText(filename));
 
                 foreach (T data in dataArray)
@@ -67,6 +71,16 @@ namespace _5eCharGen
                 sw.Write(JsonConvert.SerializeObject(Out, Formatting.Indented));
                 
             }
+        }
+
+        public static void AddUpdater(UpdateIndexesDelegate updateMethod)
+        {
+            Data.updateIndexes += updateMethod;
+        }
+
+        public static void RemoveUpdater(UpdateIndexesDelegate updateMethod)
+        {
+            Data.updateIndexes -= updateMethod;
         }
 
         

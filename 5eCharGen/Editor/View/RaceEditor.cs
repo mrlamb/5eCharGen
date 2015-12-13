@@ -23,7 +23,9 @@ namespace _5eCharGen.Editor.View
         private void CustomInitialize()
         {
             UpdateIndex();
+            UpdateSharedIndex();
             UpdateStrings();
+            Data.AddUpdater(UpdateSharedIndex);
         }
 
         private void UpdateStrings()
@@ -54,8 +56,13 @@ namespace _5eCharGen.Editor.View
             cmbParentRace.Items.Clear();
             cmbParentRace.Items.AddRange(Data.GetAllRaces().OrderBy(x => x.Name).ToArray());
 
+        }
+
+        private void UpdateSharedIndex()
+        {
             cmbSAAdd.ComboBox.Items.Clear();
             cmbSAAdd.ComboBox.Items.AddRange(Data.GetAllSAs().OrderBy(x => x.Name).ToArray());
+
         }
 
         private void ClearForm()
@@ -233,6 +240,11 @@ namespace _5eCharGen.Editor.View
                     UpdateIndex();
                     break;
             }
+        }
+
+        private void RaceEditor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Data.RemoveUpdater(UpdateSharedIndex);
         }
     }
 }

@@ -281,6 +281,7 @@
             this.Name = "RaceEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Race Editor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RaceEditor_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
