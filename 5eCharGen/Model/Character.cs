@@ -9,6 +9,7 @@ namespace _5eCharGen
 {
     public class Character
     {
+
         public string Name { get; set; }
         public int CharLevel { get; set; }
         public List<CharClass> Classes { get; set; }
